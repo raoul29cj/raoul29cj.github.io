@@ -567,7 +567,9 @@ function Resources() {
         </SectionTitle>
         <div className="resource-grid">
           {products.map((p, i) => {
-            const url = p.url || config.shopUrl;
+            // N'accepte que des liens HTTPS (évite javascript: ou http: par erreur).
+            const raw = p.url || config.shopUrl;
+            const url = /^https:\/\//i.test(raw || "") ? raw : "";
             return (
               <Reveal key={p.title} delay={i * 0.06}>
                 <div
@@ -881,9 +883,13 @@ export function App({ initialPath = "/", initialHash = "" } = {}) {
         ?.setAttribute("content", "noindex,follow");
     requestAnimationFrame(() => {
       if (route && !route.startsWith("#/")) {
-        document
-          .getElementById(decodeURIComponent(route.slice(1)))
-          ?.scrollIntoView();
+        let id = route.slice(1);
+        try {
+          id = decodeURIComponent(id);
+        } catch {
+          // Ancre mal encodée (ex. « /#% ») : on l'ignore au lieu de planter.
+        }
+        document.getElementById(id)?.scrollIntoView();
       } else if (!isHome) {
         window.scrollTo({ top: 0, behavior: "instant" });
         const el = document.querySelector("main h1");

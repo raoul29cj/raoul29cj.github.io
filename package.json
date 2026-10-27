@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite",
+    "dev:lan": "vite --host 0.0.0.0",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir .prerender && node scripts/seo.mjs",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",

@@ -611,7 +611,9 @@ export function ResourceProducts() {
         <div className="product-grid resource-grid">
           {products.map((product, index) => {
             const config = shop.items[index] || {};
-            const url = config.url || shop.url;
+            // N'accepte que des liens HTTPS (évite javascript: ou http: par erreur).
+            const raw = config.url || shop.url;
+            const url = /^https:\/\//i.test(raw || "") ? raw : "";
 
             return (
               <Reveal
