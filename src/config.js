@@ -1,11 +1,10 @@
 export const config = {
-  name: "Junix",
+  name: "Raoul.CJ",
   author: "Raoul",
   email: "junix.sie.web@gmail.com",
   phone: "+33744877359",
   phoneLabel: "+33 7 44 87 73 59",
   formEndpoint: "https://formspree.io/f/xppqyyrp",
-  logo: "/logojunix.png",
   portrait: "/cj.webp",
   cv: "/cv-raoul.pdf",
   // Renseignez le domaine exact, puis indexable: true quand le site est prêt.
@@ -31,7 +30,7 @@ export const services = [
   {
     title: "Sites web sur mesure",
     icon: "web",
-    category: "DESIGN & DÉVELOPPEMENT",
+    category: "CRÉATION",
     description:
       "Une présence en ligne qui vous ressemble. Claire, rapide et agréable à utiliser.",
     points: [
@@ -42,9 +41,9 @@ export const services = [
     price: "399 €",
   },
   {
-    title: "Un site qui fonctionne",
+    title: "Dépannage & évolutions",
     icon: "code",
-    category: "CORRECTIONS & ÉVOLUTIONS",
+    category: "SITE EXISTANT",
     description:
       "Un problème technique ou une idée à intégrer ? Faisons avancer votre site existant.",
     points: [
@@ -55,9 +54,9 @@ export const services = [
     price: "49 €",
   },
   {
-    title: "Des visuels cohérents",
+    title: "Design graphique",
     icon: "design",
-    category: "DESIGN GRAPHIQUE",
+    category: "IDENTITÉ & COMMUNICATION",
     description:
       "Des créations soignées pour donner une direction claire à votre communication.",
     points: [
@@ -68,14 +67,15 @@ export const services = [
     price: "59 €",
   },
 ];
+// Le produit « featured » est mis à la une : il doit parler au même public que les services.
 export const products = [
   {
-    title: "Kit CV & candidature",
-    type: "PACK CARRIÈRE",
+    title: "Visuels entrepreneurs",
+    type: "KIT MARKETING",
     description:
-      "Des modèles et un guide pour préparer une candidature cohérente.",
-    price: "9,90 €",
-    image: "/kit-cv.png",
+      "Des modèles de communication à personnaliser pour votre activité.",
+    price: "29 €",
+    image: "/pack-visuels.png",
     url: "",
     featured: true,
   },
@@ -89,12 +89,12 @@ export const products = [
     url: "",
   },
   {
-    title: "Visuels entrepreneurs",
-    type: "KIT MARKETING",
+    title: "Kit CV & candidature",
+    type: "PACK CARRIÈRE",
     description:
-      "Des modèles de communication à personnaliser pour votre activité.",
-    price: "29 €",
-    image: "/pack-visuels.png",
+      "Des modèles et un guide pour préparer une candidature cohérente.",
+    price: "9,90 €",
+    image: "/kit-cv.png",
     url: "",
   },
 ];
@@ -127,7 +127,7 @@ export const journey = [
   },
   {
     label: "MON PROJET",
-    title: "La création de Junix",
+    title: "Raoul.CJ, développeur freelance",
     text: "Réunir développement web, design graphique et ressources numériques dans une approche claire et attentive.",
   },
 ];

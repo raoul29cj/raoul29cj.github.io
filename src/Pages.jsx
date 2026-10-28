@@ -68,7 +68,7 @@ export class ErrorBoundary extends React.Component {
           Recharger la page
         </button>
         <a className="subtle-link" href={"mailto:" + config.email}>
-          Contacter Junix
+          Me contacter
         </a>
       </main>
     ) : (
@@ -89,9 +89,9 @@ export function LegalPage({ type }) {
     <main className="container document-page">
       <a className="subtle-link" href="/#accueil">
         <ArrowLeft size={16} />
-        Retour à Junix
+        Retour à l’accueil
       </a>
-      <span className="eyebrow">JUNIX / INFORMATIONS</span>
+      <span className="eyebrow">RAOUL.CJ / INFORMATIONS</span>
       <h1>{legalTitles[type]}</h1>
       <nav className="document-shortcuts" aria-label="Documents du site">
         {Object.entries(legalTitles).map(([id, title]) => (
@@ -141,7 +141,7 @@ export function LegalPage({ type }) {
           </p>
           <h2>Contenus</h2>
           <p>
-            Junix présente des services web et graphiques ainsi que des projets
+            Ce site présente des services web et graphiques ainsi que des projets
             conceptuels. Les marques et ressources tierces restent soumises aux
             droits et licences de leurs titulaires. Contactez l’éditeur pour une
             demande de réutilisation.
@@ -157,8 +157,8 @@ export function LegalPage({ type }) {
           <h2>Formulaire et finalités</h2>
           <p>
             Votre nom, votre e-mail et votre message sont transmis à Formspree
-            pour recevoir votre demande et notifier Junix par e-mail. Ces champs
-            sont nécessaires à une demande complète. Vous pouvez aussi nous
+            pour recevoir votre demande et me notifier par e-mail. Ces champs
+            sont nécessaires à une demande complète. Vous pouvez aussi me
             joindre directement par e-mail, téléphone ou SMS. La copie de votre
             demande utilise le presse-papiers de votre appareil uniquement à
             votre initiative.
@@ -166,7 +166,7 @@ export function LegalPage({ type }) {
           <p>
             Les demandes de devis relèvent des mesures précontractuelles prises
             à votre demande. Les autres échanges reposent sur l’intérêt légitime
-            à répondre aux personnes qui contactent Junix.
+            à répondre aux personnes qui me contactent.
           </p>
           <h2>Destinataires et transferts</h2>
           <p>
@@ -210,9 +210,9 @@ export function LegalPage({ type }) {
         <>
           <h2>Objet du site</h2>
           <p>
-            Junix présente le travail de son créateur et permet de prendre
-            contact. Aucun compte utilisateur ni paiement n’est proposé sur
-            cette version.
+            Ce site présente mon travail de développeur web et de designer et
+            permet de me contacter. Aucun compte utilisateur ni paiement n’est
+            proposé sur le site pour le moment.
           </p>
           <h2>Démonstrations et tarifs</h2>
           <p>
@@ -493,7 +493,7 @@ export function ProjectPage({ id }) {
           </a>
         </div>
         <footer className="demo-footer">
-          <span>{p.name} — Concept par Junix.</span>
+          <span>{p.name} — Concept par Raoul.CJ.</span>
           <a href="/#projets">
             Retour au portfolio
             <ArrowUpRight size={16} />

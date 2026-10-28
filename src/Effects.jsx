@@ -313,7 +313,7 @@ export function ProjectArt({ id }) {
         </div>
         <div className="art-bottom">
           <span>LE GESTE JUSTE.</span>
-          <span>EST. / CONCEPT JUNIX</span>
+          <span>EST. / CONCEPT RAOUL.CJ</span>
         </div>
       </div>
     );

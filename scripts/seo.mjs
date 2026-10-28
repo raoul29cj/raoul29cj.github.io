@@ -49,46 +49,46 @@ const template = fs.readFileSync("dist/index.html", "utf8");
 const pages = [
   {
     route: "/",
-    title: "Junix — Développeur web freelance & design graphique",
+    title: "Raoul.CJ — Développeur web freelance & design graphique",
     description:
-      "Création de sites web sur mesure, corrections techniques et design graphique. Découvrez les concepts de Junix et échangeons sur votre projet.",
+      "Création de sites web sur mesure, corrections techniques et design graphique. Découvrez mes projets et échangeons sur le vôtre.",
     index: true,
   },
   ...projects.map((p) => ({
     route: `/projets/${p.id}/`,
-    title: `${p.name} — Concept de site web | Junix`,
+    title: `${p.name} — Concept de site web | Raoul.CJ`,
     description:
       p.text +
-      " Explorez cette démonstration fictive de design et de développement web par Junix.",
+      " Explorez cette démonstration fictive de design et de développement web par Raoul.CJ.",
     index: true,
     project: p,
   })),
   {
     route: "/mentions-legales/",
-    title: "Mentions légales — Junix",
+    title: "Mentions légales — Raoul.CJ",
     description:
-      "Informations sur l’éditeur, la publication et l’hébergement du portfolio Junix.",
+      "Informations sur l’éditeur, la publication et l’hébergement du portfolio de Raoul.CJ.",
     index: false,
   },
   {
     route: "/confidentialite/",
-    title: "Données personnelles — Junix",
+    title: "Données personnelles — Raoul.CJ",
     description:
       "Informations sur le formulaire de contact, les données personnelles et vos droits.",
     index: false,
   },
   {
     route: "/conditions/",
-    title: "Conditions d’utilisation — Junix",
+    title: "Conditions d’utilisation — Raoul.CJ",
     description:
       "Conditions de consultation du portfolio, de ses concepts et de ses ressources numériques.",
     index: false,
   },
   {
     route: "/404.html",
-    title: "Page introuvable — Junix",
+    title: "Page introuvable — Raoul.CJ",
     description:
-      "Cette page n’existe pas. Retrouvez les services et les projets de Junix.",
+      "Cette page n’existe pas. Retrouvez les projets et les services de Raoul.CJ.",
     index: false,
   },
 ];
@@ -122,11 +122,11 @@ for (const page of pages) {
   if (origin) {
     const canonical = origin + page.route;
     html = html.replace(
-      'content="/og-junix.png"',
-      `content="${escape(origin)}/og-junix.png"`,
+      'content="/og-image.png"',
+      `content="${escape(origin)}/og-image.png"`,
     );
     extra.push(
-      `<meta name="twitter:image" content="${escape(origin)}/og-junix.png"/>`,
+      `<meta name="twitter:image" content="${escape(origin)}/og-image.png"/>`,
     );
     if (page.route !== "/404.html")
       extra.push(
@@ -143,7 +143,7 @@ for (const page of pages) {
                   "@type": "WebSite",
                   "@id": origin + "/#website",
                   url: origin + "/",
-                  name: "Junix",
+                  name: config.name,
                   inLanguage: "fr-FR",
                 },
                 {
@@ -151,7 +151,7 @@ for (const page of pages) {
                   "@id": origin + "/#creator",
                   name: config.author,
                   url: origin + "/#apropos",
-                  jobTitle: "Développeur web et créateur de Junix",
+                  jobTitle: "Développeur web et designer freelance",
                 },
                 {
                   "@type": "WebPage",

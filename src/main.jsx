@@ -157,14 +157,31 @@ function SectionTitle({ number, label, children, text }) {
     </Reveal>
   );
 }
+// Les 4 étapes de la méthode : partagées par le visuel interactif et les cartes.
+const steps = [
+  [
+    "Votre idée",
+    "Objectifs, public, contenu.",
+    "Nous échangeons sur vos objectifs, votre public et vos priorités. Je vous envoie ensuite un devis clair.",
+  ],
+  [
+    "Le design",
+    "Une direction qui vous ressemble.",
+    "Je crée une direction visuelle fidèle à votre identité, que vous validez avant toute ligne de code.",
+  ],
+  [
+    "Le développement",
+    "Une expérience fluide sur tous les écrans.",
+    "Je développe un site rapide et soigné, pensé pour le mobile comme pour l’ordinateur.",
+  ],
+  [
+    "La mise en ligne",
+    "Vérifications et accompagnement.",
+    "Je vérifie chaque détail, je publie le site et je vous montre comment le faire vivre.",
+  ],
+];
 function FlowPreview() {
   const [step, setStep] = useState(0);
-  const steps = [
-    ["Votre idée", "Objectifs, public, contenu."],
-    ["Le design", "Une direction qui vous ressemble."],
-    ["Le développement", "Une expérience fluide sur tous les écrans."],
-    ["La mise en ligne", "Vérifications et accompagnement."],
-  ];
   return (
     <Tilt className="flow-preview panel" strength={15}>
       <div className="window-bar">
@@ -173,7 +190,7 @@ function FlowPreview() {
           <i />
           <i />
         </div>
-        <span>JUNIX / VOTRE PROJET EN MOUVEMENT</span>
+        <span>RAOUL.CJ / VOTRE PROJET EN MOUVEMENT</span>
         <ScanLine size={15} />
       </div>
       <div className="flow-top">
@@ -194,7 +211,7 @@ function FlowPreview() {
               {name}
               {i === step && <Check size={13} />}
             </button>
-            {i < 3 && (
+            {i < steps.length - 1 && (
               <span className={"flow-wire wire-" + i} aria-hidden="true" />
             )}
           </React.Fragment>
@@ -208,7 +225,9 @@ function FlowPreview() {
           <strong>{steps[step][0]}</strong>
           <p>{steps[step][1]}</p>
         </div>
-        <span className="flow-counter">0{step + 1}/04</span>
+        <span className="flow-counter">
+          {pad(step + 1)}/{pad(steps.length)}
+        </span>
       </div>
       <div className="flow-footer">
         <span>
@@ -243,7 +262,7 @@ function HeroShowcase() {
             <i />
             <i />
           </div>
-          <span>JUNIX / PROJETS À LA UNE</span>
+          <span>RAOUL.CJ / PROJETS À LA UNE</span>
           <ScanLine size={15} />
         </div>
         <a
@@ -329,7 +348,7 @@ function Hero() {
         <HeroShowcase />
       </Reveal>
       <a className="scroll-indicator" href="/#projets">
-        <span>DÉCOUVRIR JUNIX</span>
+        <span>DÉCOUVRIR MES PROJETS</span>
         <ArrowDown size={15} />
       </a>
     </section>
@@ -500,13 +519,13 @@ function Work() {
             aria-label={"Explorer " + p.name}
           >
             <div className="preview-bar">
-              <span>JUNIX / CONCEPT {pad(i + 1)}</span>
+              <span>CONCEPT {pad(i + 1)}</span>
               <ArrowUpRight size={17} />
             </div>
             <ProjectArt id={p.id} />
           </a>
           <div className="project-meta">
-            <span className="tiny-label">{p.type} · DÉMONSTRATION</span>
+            <span className="tiny-label">{p.type}</span>
             <a href={"/projets/" + p.id + "/"}>
               <h3>{p.name}</h3>
               <ArrowUpRight size={23} />
@@ -528,7 +547,7 @@ function Work() {
         <SectionTitle
           number="01"
           label="PROJETS CONCEPTUELS"
-          text={`${projects.length} univers, ${projects.length} façons de raconter une activité. Explorez les démonstrations interactives.`}
+          text={`${projects.length} concepts que j’ai imaginés et développés, chacun avec son univers. Explorez les démonstrations interactives.`}
         >
           Des idées.
           <br />
@@ -542,9 +561,6 @@ function Work() {
             <ArrowUpRight size={17} />
           </a>
         </div>
-        <p className="fine-print">
-          Ces concepts ne sont pas des missions commandées par des clients.
-        </p>
       </div>
     </section>
   );
@@ -568,25 +584,9 @@ function Method() {
           </Reveal>
         </div>
         <div className="method-grid">
-          {[
-            [
-              "01",
-              "On comprend",
-              "Vos objectifs, votre public, vos priorités. Avant de créer, on définit ce qui compte.",
-            ],
-            [
-              "02",
-              "On construit",
-              "Une direction visuelle, puis un développement pensé pour les vrais usages.",
-            ],
-            [
-              "03",
-              "On affine",
-              "Des échanges, des vérifications et une mise en ligne préparée avec soin.",
-            ],
-          ].map(([n, title, text], i) => (
-            <Reveal className="method-card" key={n} delay={i * 0.07}>
-              <span>{n}</span>
+          {steps.map(([title, , text], i) => (
+            <Reveal className="method-card" key={title} delay={i * 0.07}>
+              <span>{pad(i + 1)}</span>
               <h3>{title}</h3>
               <p>{text}</p>
             </Reveal>
@@ -607,10 +607,6 @@ function Method() {
             </Reveal>
           ))}
         </div>
-        <p className="fine-print">
-          Des repères sur ce portfolio, sans statistiques de clientèle
-          inventées.
-        </p>
       </div>
     </section>
   );
@@ -652,7 +648,7 @@ function Resources() {
                       fallback={
                         <div className="book-cover">
                           <BookOpen size={23} />
-                          <span>JUNIX / RESSOURCES</span>
+                          <span>RAOUL.CJ / RESSOURCES</span>
                           <strong>{p.title}</strong>
                           <small>{p.type}</small>
                         </div>
@@ -690,7 +686,7 @@ function Resources() {
           })}
         </div>
         <p className="fine-print" role="status">
-          {notice || "Produits en préparation. Aucun paiement n’est activé."}
+          {notice}
         </p>
       </div>
     </section>
@@ -716,7 +712,7 @@ function About() {
         <Reveal>
           <div className="panel identity-card">
             <div className="identity-top">
-              <span className="tiny-label">DERRIÈRE JUNIX</span>
+              <span className="tiny-label">QUI SUIS-JE ?</span>
               <Code2 size={22} />
             </div>
             <div className="identity-person">
@@ -731,7 +727,7 @@ function About() {
                 <span>.</span>
               </h3>
             </div>
-            <p>Développeur web & créateur de Junix.</p>
+            <p>Développeur web & designer graphique freelance.</p>
             <div className="identity-location">
               <MapPin size={16} />
               Algérie · France / Travail à distance
@@ -755,7 +751,7 @@ function About() {
           </div>
         </Reveal>
         <div>
-          <SectionTitle number="04" label="MON PARCOURS">
+          <SectionTitle number="04" label="À PROPOS">
             Créatif dans l’approche.
             <br />
             <em>Précis dans le détail.</em>
@@ -789,8 +785,16 @@ function FAQ() {
       "Ils sont précisés séparément dans le devis, sauf mention contraire explicite.",
     ],
     [
-      "Les produits numériques sont-ils disponibles ?",
-      "La boutique est en préparation. Aucun paiement n’est proposé sur cette version.",
+      "Quels sont les délais ?",
+      "Comptez en général 2 à 4 semaines pour un site vitrine, selon le contenu et nos échanges, et quelques jours pour une correction. Le délai exact est indiqué dans le devis.",
+    ],
+    [
+      "Comment se passe le paiement ?",
+      "Un acompte au lancement du projet, puis le solde à la livraison. Les modalités sont précisées dans le devis.",
+    ],
+    [
+      "Les ressources numériques sont-elles disponibles ?",
+      "Pas encore : elles sont en préparation. Écrivez-moi pour être prévenu(e) de leur sortie.",
     ],
   ];
   return (
@@ -850,7 +854,7 @@ function Footer() {
             <a href="/#services">
               Services <ArrowUpRight size={14} />
             </a>
-            <a href="/#apropos">Mon parcours</a>
+            <a href="/#apropos">À propos</a>
             <a href="/#ressources">Ressources</a>
           </nav>
           <div>
@@ -872,7 +876,7 @@ function Footer() {
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} Junix.{" "}
+            © {new Date().getFullYear()} Raoul.CJ.{" "}
             <span className="footer-crafted">
               Pensé avec soin. Développé sur mesure.
             </span>
@@ -930,10 +934,10 @@ export function App({ initialPath = "/", initialHash = "" } = {}) {
         conditions: "Conditions d’utilisation",
       }[legal];
     document.title = realUnknown
-      ? "Page introuvable — Junix"
+      ? "Page introuvable — " + config.name
       : title
-        ? title + " — Junix"
-        : "Junix — Développeur web freelance & design graphique";
+        ? title + " — " + config.name
+        : config.name + " — Développeur web freelance & design graphique";
     // Préserve les anciennes adresses partagées tout en adoptant les URL de pages.
     if (normalized === "/" && route.startsWith("#/") && !realUnknown) {
       window.location.replace(

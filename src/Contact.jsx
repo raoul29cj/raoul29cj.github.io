@@ -63,7 +63,7 @@ export default function Contact() {
           name: form.name.trim(),
           email: form.email.trim(),
           message: form.message.trim(),
-          subject: "Junix — Nouvelle demande de projet",
+          subject: "Raoul.CJ — Nouvelle demande de projet",
         }),
         signal: controller.signal,
       });

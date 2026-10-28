@@ -1,4 +1,4 @@
-/* JUNIX — thème existant, interactions et responsive harmonisés */
+/* RAOUL.CJ — thème existant, interactions et responsive harmonisés */
 :root {
   font-family: "DM Sans", sans-serif;
   color: #edf3ff;
@@ -1157,8 +1157,8 @@ h2 {
 }
 .method-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 38px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
 }
 .method-card {
   border-top: 1px solid #a8c4f133;
@@ -2150,6 +2150,11 @@ summary {
 }
 .method-intro .section-heading {
   margin-bottom: 0;
+}
+@media (max-width: 1050px) {
+  .method-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 850px) {
   .method-intro {

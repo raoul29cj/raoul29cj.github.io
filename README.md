@@ -1,6 +1,6 @@
-# Junix — Portfolio, services et ressources numériques
+# Raoul.CJ — Portfolio, services et ressources numériques
 
-Site vitrine **en français** de Junix : développement web, design graphique et (bientôt) ebooks.
+Site vitrine **en français** de Raoul.CJ : développement web, design graphique et (bientôt) ebooks.
 React 19 + Vite 7, pré-rendu statique des pages pour le référencement, déployable sur Cloudflare Pages.
 
 ## Lancer le projet
