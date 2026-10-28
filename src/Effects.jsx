@@ -124,7 +124,14 @@ export function InteractiveTitle() {
     </motion.h1>
   );
 }
-export function Asset({ src, alt, className = "", fallback, eager = false }) {
+export function Asset({
+  src,
+  alt,
+  className = "",
+  fallback,
+  eager = false,
+  size,
+}) {
   const [failed, setFailed] = useState(false);
   useEffect(() => setFailed(false), [src]);
   return src && !failed ? (
@@ -132,6 +139,8 @@ export function Asset({ src, alt, className = "", fallback, eager = false }) {
       src={src}
       alt={alt}
       className={className}
+      width={size}
+      height={size}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
       onError={() => setFailed(true)}

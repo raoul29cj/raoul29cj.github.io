@@ -35,10 +35,9 @@ import {
   Database,
   Image as ImageIcon,
 } from "lucide-react";
-import { config, services, products, journey } from "./config";
+import { config, services, products, journey, faq } from "./config";
 import { projects } from "./projects";
 import {
-  LightRibbons,
   Reveal,
   Tilt,
   Asset,
@@ -47,6 +46,7 @@ import {
 } from "./Effects";
 import { LegalPage, ProjectPage, NotFound, ErrorBoundary } from "./Pages";
 import Contact from "./Contact";
+import Background3D from "./Background3D";
 import "@fontsource/dm-sans/latin-400.css";
 import "@fontsource/dm-sans/latin-500.css";
 import "@fontsource/dm-sans/latin-600.css";
@@ -64,6 +64,7 @@ function Brand() {
         src={config.portrait}
         alt=""
         eager
+        size={36}
         fallback={<span className="brand-fallback">R</span>}
       />
       <span>
@@ -77,10 +78,24 @@ function Header() {
     [compact, setCompact] = useState(
       typeof window !== "undefined" && window.scrollY > 100,
     );
+  const [active, setActive] = useState("");
   const ref = useRef(null),
     button = useRef(null);
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
+  const reduced = useReducedMotion();
   useMotionValueEvent(scrollY, "change", (y) => setCompact(y > 100));
+  // Menu actif : la section qui traverse le milieu de l'écran est mise en avant.
+  useEffect(() => {
+    const sections = document.querySelectorAll("main#content > section[id]");
+    if (!sections.length) return;
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     function key(e) {
       if (e.key === "Escape" && open) {
@@ -104,6 +119,14 @@ function Header() {
     };
   }, [open]);
   return (
+    <>
+    {!reduced && (
+      <motion.span
+        className="scroll-progress"
+        style={{ scaleX: scrollYProgress }}
+        aria-hidden="true"
+      />
+    )}
     <header
       ref={ref}
       className={
@@ -119,7 +142,13 @@ function Header() {
             ["À propos", "apropos"],
             ["Ressources", "ressources"],
           ].map(([label, id]) => (
-            <a href={"/#" + id} key={id} onClick={() => setOpen(false)}>
+            <a
+              href={"/#" + id}
+              key={id}
+              className={active === id ? "active" : undefined}
+              aria-current={active === id ? "true" : undefined}
+              onClick={() => setOpen(false)}
+            >
               {label}
             </a>
           ))}
@@ -144,6 +173,7 @@ function Header() {
         </button>
       </div>
     </header>
+    </>
   );
 }
 function SectionTitle({ number, label, children, text }) {
@@ -720,6 +750,7 @@ function About() {
                 src={config.portrait}
                 alt={config.author}
                 className="avatar"
+                size={58}
                 fallback={<span className="avatar initials">R</span>}
               />
               <h3>
@@ -771,32 +802,6 @@ function About() {
   );
 }
 function FAQ() {
-  const items = [
-    [
-      "Comment commence un projet ?",
-      "Par un échange sur vos objectifs, le périmètre, le délai et le budget. Un devis précise ensuite les conditions de réalisation.",
-    ],
-    [
-      "Peut-on améliorer un site existant ?",
-      "Oui. Un diagnostic permet de comprendre le problème, de confirmer la faisabilité et de définir l’intervention.",
-    ],
-    [
-      "Le domaine et l’hébergement sont-ils inclus ?",
-      "Ils sont précisés séparément dans le devis, sauf mention contraire explicite.",
-    ],
-    [
-      "Quels sont les délais ?",
-      "Comptez en général 2 à 4 semaines pour un site vitrine, selon le contenu et nos échanges, et quelques jours pour une correction. Le délai exact est indiqué dans le devis.",
-    ],
-    [
-      "Comment se passe le paiement ?",
-      "Un acompte au lancement du projet, puis le solde à la livraison. Les modalités sont précisées dans le devis.",
-    ],
-    [
-      "Les ressources numériques sont-elles disponibles ?",
-      "Pas encore : elles sont en préparation. Écrivez-moi pour être prévenu(e) de leur sortie.",
-    ],
-  ];
   return (
     <section className="section faq">
       <div className="container faq-grid">
@@ -806,7 +811,7 @@ function FAQ() {
           <em>avant de se lancer.</em>
         </SectionTitle>
         <div>
-          {items.map(([q, a]) => (
+          {faq.map(([q, a]) => (
             <details key={q}>
               <summary>
                 {q}
@@ -992,7 +997,7 @@ export function App({ initialPath = "/", initialHash = "" } = {}) {
     );
   return (
     <>
-      <LightRibbons />
+      <Background3D />
       <a className="skip-link" href={isHome ? "#content" : "#page-content"}>
         Aller au contenu
       </a>

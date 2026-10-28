@@ -360,6 +360,46 @@ h2 {
   color: #fff;
   background: #9cc7ff0d;
 }
+/* Lien de la section en cours : texte clair et petit point orange */
+.navigation nav > a {
+  position: relative;
+}
+.navigation nav > a.active {
+  color: #fff;
+  background: #9cc7ff12;
+}
+.navigation nav > a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 0.3s,
+    transform 0.35s var(--ease);
+}
+.navigation nav > a.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Progression de lecture */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 60;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--orange), #6fa9ff);
+  pointer-events: none;
+}
 .nav-cta {
   padding: 12px 15px;
   font-size: 11px;
@@ -2915,6 +2955,11 @@ button:active:not(:disabled),
   .navigation nav > a {
     padding: 13px 12px;
     font-size: 13px;
+  }
+  .navigation nav > a::after {
+    left: auto;
+    right: 14px;
+    bottom: calc(50% - 2px);
   }
   .navigation nav .mobile-cta {
     display: flex !important;

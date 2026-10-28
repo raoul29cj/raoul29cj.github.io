@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { config } from "../src/config.js";
+import { config, faq, services } from "../src/config.js";
 import { projects } from "../src/projects.js";
 import { render } from "../.prerender/entry-server.js";
 
@@ -150,8 +150,49 @@ for (const page of pages) {
                   "@type": "Person",
                   "@id": origin + "/#creator",
                   name: config.author,
+                  alternateName: config.name,
                   url: origin + "/#apropos",
+                  image: origin + config.portrait,
                   jobTitle: "Développeur web et designer freelance",
+                  knowsAbout: [
+                    "Développement web",
+                    "React",
+                    "JavaScript",
+                    "WordPress",
+                    "Laravel",
+                    "Design graphique",
+                    "UI design",
+                  ],
+                },
+                {
+                  "@type": "ProfessionalService",
+                  "@id": origin + "/#service",
+                  name: config.name + " — Développement web & design graphique",
+                  url: origin + "/",
+                  image: origin + "/og-image.png",
+                  areaServed: "FR",
+                  founder: { "@id": origin + "/#creator" },
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Services",
+                    itemListElement: services.map((s) => ({
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        name: s.title,
+                        description: s.description,
+                      },
+                    })),
+                  },
+                },
+                {
+                  "@type": "FAQPage",
+                  "@id": origin + "/#faq",
+                  mainEntity: faq.map(([q, a]) => ({
+                    "@type": "Question",
+                    name: q,
+                    acceptedAnswer: { "@type": "Answer", text: a },
+                  })),
                 },
                 {
                   "@type": "WebPage",
@@ -173,6 +214,14 @@ for (const page of pages) {
               description: page.description,
               inLanguage: "fr-FR",
               creator: { "@type": "Person", name: config.author },
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Accueil", item: origin + "/" },
+                  { "@type": "ListItem", position: 2, name: "Projets", item: origin + "/#projets" },
+                  { "@type": "ListItem", position: 3, name: page.project.name, item: canonical },
+                ],
+              },
             };
       extra.push(`<script type="application/ld+json">${json(data)}</script>`);
     }

@@ -114,6 +114,33 @@ export const projects = [
     tags: ["Direction artistique", "Expérience interactive"],
   },
 ];
+// Questions fréquentes : affichées sur l’accueil et reprises pour Google (FAQPage).
+export const faq = [
+  [
+    "Comment commence un projet ?",
+    "Par un échange sur vos objectifs, le périmètre, le délai et le budget. Un devis précise ensuite les conditions de réalisation.",
+  ],
+  [
+    "Peut-on améliorer un site existant ?",
+    "Oui. Un diagnostic permet de comprendre le problème, de confirmer la faisabilité et de définir l’intervention.",
+  ],
+  [
+    "Le domaine et l’hébergement sont-ils inclus ?",
+    "Ils sont précisés séparément dans le devis, sauf mention contraire explicite.",
+  ],
+  [
+    "Quels sont les délais ?",
+    "Comptez en général 2 à 4 semaines pour un site vitrine, selon le contenu et nos échanges, et quelques jours pour une correction. Le délai exact est indiqué dans le devis.",
+  ],
+  [
+    "Comment se passe le paiement ?",
+    "Un acompte au lancement du projet, puis le solde à la livraison. Les modalités sont précisées dans le devis.",
+  ],
+  [
+    "Les ressources numériques sont-elles disponibles ?",
+    "Pas encore : elles sont en préparation. Écrivez-moi pour être prévenu(e) de leur sortie.",
+  ],
+];
 export const journey = [
   {
     label: "ALGÉRIE · 3 ANS",
