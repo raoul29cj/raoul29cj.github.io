@@ -325,10 +325,9 @@ h2 {
 .brand img {
   width: 36px;
   height: 36px;
-  object-fit: contain;
-  background: #f8fbff;
-  border-radius: 9px;
-  padding: 3px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #b3cbee66;
 }
 .brand > span > span {
   color: var(--orange);
@@ -338,7 +337,7 @@ h2 {
   place-items: center;
   width: 36px;
   height: 36px;
-  border-radius: 9px;
+  border-radius: 50%;
   background: var(--blue);
   color: #132843;
 }

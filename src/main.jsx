@@ -59,15 +59,15 @@ import "./styles.css";
 const pad = (n) => String(n).padStart(2, "0");
 function Brand() {
   return (
-    <a className="brand" href="/#accueil" aria-label="Junix, accueil">
+    <a className="brand" href="/#accueil" aria-label="Raoul.CJ, accueil">
       <Asset
-        src={config.logo}
+        src={config.portrait}
         alt=""
         eager
-        fallback={<span className="brand-fallback">J</span>}
+        fallback={<span className="brand-fallback">R</span>}
       />
       <span>
-        Junix<span>.</span>
+        Raoul<span>.</span>CJ
       </span>
     </a>
   );
