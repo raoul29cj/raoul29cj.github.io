@@ -30,8 +30,8 @@
 
 | | Performance | Accessibilité | Bonnes pratiques |
 |---|:---:|:---:|:---:|
-| Ordinateur | 100 | 98 | 100 |
-| Mobile | 85 | 98 | 100 |
+| Ordinateur | 100 | 100 | 100 |
+| Mobile | 82 – 85 | 100 | 100 |
 
 ## 🧰 Technologies
 
