@@ -54,6 +54,8 @@ import "@fontsource/dm-sans/latin-700.css";
 import "@fontsource/space-grotesk/latin-500.css";
 import "@fontsource/space-grotesk/latin-600.css";
 import "@fontsource/space-grotesk/latin-700.css";
+// Italique signature des titres (« caractère. », « Plus de sens. »…).
+import "@fontsource/instrument-serif/latin-400-italic.css";
 // Polices propres aux 4 concepts (chargées seulement quand elles s'affichent).
 import "@fontsource/playfair-display/latin-400.css";
 import "@fontsource/playfair-display/latin-400-italic.css";
