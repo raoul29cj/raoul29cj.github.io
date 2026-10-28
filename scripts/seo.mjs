@@ -10,6 +10,20 @@ const escape = (s) =>
     .replaceAll('"', "&quot;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+// Même politique que public/_headers (frame-ancestors n'est pas accepté en balise meta).
+const csp = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self' https://formspree.io",
+  "object-src 'none'",
+  "frame-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self' https://formspree.io",
+  "upgrade-insecure-requests",
+].join("; ");
 const json = (value) => JSON.stringify(value).replaceAll("<", "\\u003c");
 const fields = [
   "identity",
@@ -230,6 +244,12 @@ for (const page of pages) {
     }
   }
   html = html.replace("</head>", extra.join("\n") + "\n</head>");
+  // GitHub Pages ignore public/_headers : la politique de sécurité est donc
+  // aussi déclarée dans la page, juste après le charset (avant tout script).
+  html = html.replace(
+    /<meta charset="UTF-8" \/>/i,
+    (charset) => `${charset}\n<meta http-equiv="Content-Security-Policy" content="${csp}"/>`,
+  );
   const output =
     page.route === "/"
       ? "dist/index.html"

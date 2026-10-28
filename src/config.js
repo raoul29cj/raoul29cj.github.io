@@ -8,7 +8,7 @@ export const config = {
   portrait: "/cj.webp",
   cv: "/cv-raoul.pdf",
   // Renseignez le domaine exact, puis indexable: true quand le site est prêt.
-  siteUrl: "",
+  siteUrl: "https://raoul29cj.github.io",
   indexable: false,
   shopUrl: "",
   legal: {
