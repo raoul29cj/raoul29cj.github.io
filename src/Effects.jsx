@@ -5,7 +5,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import { Scissors, Ruler, ArrowUpRight } from "lucide-react";
+import { Scissors, Ruler } from "lucide-react";
 
 export function Reveal({ children, className = "", delay = 0 }) {
   const reduced = useReducedMotion() || typeof window === "undefined";
@@ -290,141 +290,138 @@ export function LightRibbons() {
     </div>
   );
 }
+// Visuels des 4 concepts : chacun a sa mise en page, sa typographie et sa palette.
 export function ProjectArt({ id }) {
+  if (id === "alba")
+    return (
+      <div className="art art-alba">
+        <div className="alba-top">
+          <span>Soins</span>
+          <b>Maison Alba</b>
+          <span>Réserver</span>
+        </div>
+        <div className="alba-stage">
+          <div className="alba-arch" aria-hidden="true">
+            <span className="alba-sun" />
+            <span className="alba-stem" />
+          </div>
+          <h3>
+            Une pause,
+            <br />
+            <em>pour vous.</em>
+          </h3>
+        </div>
+        <div className="alba-pills">
+          <span>Visage</span>
+          <span>Corps</span>
+          <span>Rituels</span>
+        </div>
+      </div>
+    );
+  if (id === "sola")
+    return (
+      <div className="art art-sola">
+        <div className="sola-top">
+          <b>
+            sola<span>.</span>
+          </b>
+          <span>La carte · Réserver</span>
+        </div>
+        <h3>
+          Le goût
+          <br />
+          du moment.
+        </h3>
+        <div className="sola-plate" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
+        <span className="sola-badge" aria-hidden="true">
+          100%
+          <br />
+          saison
+        </span>
+        <ul className="sola-ticket">
+          <li>
+            Entrées <i /> 9
+          </li>
+          <li>
+            Plats <i /> 18
+          </li>
+          <li>
+            Desserts <i /> 7
+          </li>
+        </ul>
+      </div>
+    );
   if (id === "barber")
     return (
-      <div className="art barber-art">
-        <div className="art-nav">
+      <div className="art art-barber">
+        <span className="barber-stripes" aria-hidden="true" />
+        <div className="barber-head">
+          <span>Est. 2026</span>
           <b>
-            ATELIER N°7<span> / BARBER</span>
+            <Scissors size={14} strokeWidth={1.6} /> Atelier N°7
           </b>
-          <Scissors size={22} strokeWidth={1.5} />
+          <span>Paris</span>
         </div>
-        <div className="barber-layout">
-          <div>
-            <small>COUPE · BARBE · PRÉCISION</small>
-            <h3>
-              Une coupe.
-              <br />
-              <em>Une signature.</em>
-            </h3>
-            <span className="art-mini-cta">
-              Trouver son style <ArrowUpRight size={12} />
-            </span>
-          </div>
-          <div className="barber-mirror" aria-hidden="true">
-            <span className="mirror-mark">
-              N°<b>7</b>
-            </span>
-            <div className="barber-pole" />
-            <div className="mirror-shelf" />
-          </div>
-        </div>
-        <div className="art-bottom">
-          <span>LE GESTE JUSTE.</span>
-          <span>EST. / CONCEPT RAOUL.CJ</span>
-        </div>
-      </div>
-    );
-  if (id === "artisan")
-    return (
-      <div className="art artisan-art">
-        <div className="art-nav">
-          <b>
-            atelier
-            <br />
-            <span>noyer.</span>
-          </b>
-          <span>MATIÈRE / SAVOIR-FAIRE</span>
-        </div>
-        <div className="artisan-layout">
-          <div>
-            <small>MENUISERIE SUR MESURE</small>
-            <h3>
-              Habiter
-              <br />
-              <em>autrement.</em>
-            </h3>
-            <span className="art-mini-cta">
-              Voir les réalisations <ArrowUpRight size={12} />
-            </span>
-          </div>
-          <div className="wood-scene" aria-hidden="true">
-            <div className="wood-panel" />
-            <div className="wood-bench" />
-            <span className="measure-line">SUR MESURE / 01</span>
-            <Ruler size={22} strokeWidth={1.4} />
-          </div>
-        </div>
-        <div className="art-bottom">
-          <span>LE BOIS, DANS LE DÉTAIL.</span>
-          <span>DESIGN & AGENCEMENT</span>
-        </div>
-      </div>
-    );
-  return id === "alba" ? (
-    <div className="art alba">
-      <div className="art-nav">
-        <b>MAISON ALBA</b>
-        <span>LE STUDIO / LES SOINS</span>
-      </div>
-      <div className="alba-layout">
-        <div>
-          <small>LE SOIN COMME UN RITUEL</small>
-          <h3>
-            Une pause.
-            <br />
-            <em>Pour vous.</em>
-          </h3>
-          <p>
-            Des gestes doux.
-            <br />
-            Le temps de se retrouver.
-          </p>
-          <span className="art-link">Découvrir les rituels ↗</span>
-        </div>
-        <div className="still-life" aria-hidden="true">
-          <div className="arch" />
-          <div className="bottle">
+        <h3>
+          La coupe
+          <br />
+          <em>juste.</em>
+        </h3>
+        <ul className="barber-menu">
+          <li>
+            <span>Coupe signature</span>
             <i />
-            <span>
-              ALBA
-              <br />
-              ESSENTIEL
-            </span>
-          </div>
-          <div className="pot" />
-          <div className="leaf" />
-        </div>
+            <b>35 €</b>
+          </li>
+          <li>
+            <span>Barbe dessinée</span>
+            <i />
+            <b>25 €</b>
+          </li>
+          <li>
+            <span>Rasage traditionnel</span>
+            <i />
+            <b>30 €</b>
+          </li>
+        </ul>
       </div>
-      <div className="art-bottom">DOUCEUR / ÉQUILIBRE / ATTENTION</div>
-    </div>
-  ) : (
-    <div className="art sola">
-      <div className="art-nav">
+    );
+  return (
+    <div className="art art-artisan">
+      <div className="artisan-top">
         <b>
-          sola<span>.</span>
+          atelier
+          <br />
+          noyer.
         </b>
-        <span>UNE TABLE. DES SAISONS.</span>
+        <span>N°01 — Mobilier sur mesure</span>
       </div>
-      <small>CUISINE VIVANTE / PRODUITS DE SAISON</small>
-      <h3>
-        Le goût
-        <br />
-        des <em>bons moments.</em>
-      </h3>
-      <div className="table-scene" aria-hidden="true">
-        <div className="linen" />
-        <div className="plate">
-          <div className="food">
+      <div className="artisan-body">
+        <h3>
+          Habiter
+          <br />
+          <em>autrement.</em>
+        </h3>
+        <div className="artisan-drawing" aria-hidden="true">
+          <div className="artisan-cabinet">
             <i />
-            <b />
-            <em />
+            <i />
+            <i />
           </div>
+          <span className="dim dim-w">1200 mm</span>
+          <span className="dim dim-h">2400 mm</span>
+          <Ruler size={16} strokeWidth={1.4} />
         </div>
-        <div className="side-plate" />
       </div>
-      <div className="art-bottom">ENTRÉES · PLATS · DESSERTS</div>
+      <div className="artisan-spec">
+        <span>Chêne massif</span>
+        <span>Finition huile</span>
+        <span>Délai 6 sem.</span>
+      </div>
     </div>
   );
 }

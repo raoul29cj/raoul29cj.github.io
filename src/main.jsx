@@ -54,6 +54,12 @@ import "@fontsource/dm-sans/latin-700.css";
 import "@fontsource/space-grotesk/latin-500.css";
 import "@fontsource/space-grotesk/latin-600.css";
 import "@fontsource/space-grotesk/latin-700.css";
+// Polices propres aux 4 concepts (chargées seulement quand elles s'affichent).
+import "@fontsource/playfair-display/latin-400.css";
+import "@fontsource/playfair-display/latin-400-italic.css";
+import "@fontsource/fraunces/latin-900.css";
+import "@fontsource/bebas-neue/latin-400.css";
+import "@fontsource/space-mono/latin-400.css";
 import "./styles.css";
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -810,7 +816,7 @@ function FAQ() {
           <br />
           <em>avant de se lancer.</em>
         </SectionTitle>
-        <div>
+        <div className="faq-list">
           {faq.map(([q, a]) => (
             <details key={q}>
               <summary>

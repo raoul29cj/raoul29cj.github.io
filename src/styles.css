@@ -958,238 +958,12 @@ h2 {
 .project-preview:hover .art {
   transform: scale(1.025);
 }
-.art-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.art-nav > span {
-  font-size: 6px;
-  letter-spacing: 1px;
-}
+
 .art small {
   font-size: 6px;
   letter-spacing: 1.5px;
 }
-.art-bottom {
-  font-size: 6px;
-  letter-spacing: 1.5px;
-  margin-top: 18px;
-}
-.alba {
-  background: #f5eadb;
-  color: #604e3e;
-}
-.alba .art-nav {
-  border-bottom: 1px solid #a9876029;
-  padding-bottom: 18px;
-}
-.alba .art-nav b {
-  font:
-    500 22px Georgia,
-    serif;
-  letter-spacing: 1px;
-}
-.alba-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  align-items: center;
-  margin-top: 23px;
-}
-.alba h3 {
-  font:
-    400 clamp(29px, 3vw, 43px)/1.08 Georgia,
-    serif;
-  letter-spacing: -1.6px;
-  margin: 18px 0;
-}
-.alba h3 em {
-  color: inherit;
-}
-.alba p {
-  font-size: 8px;
-  color: #846c54;
-  line-height: 1.7;
-}
-.art-link {
-  display: inline-block;
-  font-size: 7px;
-  padding: 9px 0;
-  border-bottom: 1px solid #9b7c5c;
-}
-.still-life {
-  position: relative;
-  height: 215px;
-  overflow: hidden;
-  border-radius: 100px 100px 4px 4px;
-  background: linear-gradient(135deg, #e9d6bd, #d5ba96);
-}
-.arch {
-  position: absolute;
-  inset: 14px;
-  border: 1px solid #fff5;
-  border-radius: 90px 90px 3px 3px;
-}
-.bottle {
-  position: absolute;
-  bottom: 30px;
-  left: 32%;
-  width: 45px;
-  height: 94px;
-  border-radius: 8px 8px 5px 5px;
-  background: linear-gradient(90deg, #ae8252, #d8b782, #a87e4d);
-  box-shadow: 14px 14px 20px #77542c2b;
-}
-.bottle i {
-  position: absolute;
-  width: 25px;
-  height: 18px;
-  left: 10px;
-  top: -16px;
-  background: #574a3c;
-  border-radius: 4px 4px 0 0;
-}
-.bottle span {
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  top: 30px;
-  padding: 8px 0;
-  text-align: center;
-  font-size: 5px;
-  line-height: 1.5;
-  background: #f5ead7;
-}
-.pot {
-  position: absolute;
-  bottom: 27px;
-  right: 9%;
-  width: 42px;
-  height: 31px;
-  background: #edddc4;
-  border-radius: 3px 3px 10px 10px;
-  border-top: 5px solid #a58763;
-  box-shadow: 8px 8px 13px #77542c1c;
-}
-.leaf {
-  position: absolute;
-  top: 30px;
-  left: 38%;
-  width: 67px;
-  height: 22px;
-  background: #8d9672;
-  border-radius: 0 100% 0 100%;
-  transform: rotate(-45deg);
-  box-shadow: 20px 20px 0 -3px #a7af8b;
-}
-.sola {
-  background: #153a57;
-  color: #f0f3e9;
-}
-.sola .art-nav b {
-  font:
-    600 35px Georgia,
-    serif;
-  letter-spacing: -1.5px;
-}
-.sola .art-nav b span {
-  color: #ffb379;
-}
-.sola > .art-nav {
-  margin-bottom: 23px;
-}
-.sola > small {
-  color: #c1d6e5;
-}
-.sola h3 {
-  font:
-    600 clamp(30px, 3vw, 43px)/1.05 "Space Grotesk",
-    sans-serif;
-  letter-spacing: -1.7px;
-  margin: 12px 0 18px;
-}
-.sola h3 em {
-  color: #ffd1a9;
-}
-.table-scene {
-  position: relative;
-  height: 130px;
-  background: #28516c;
-  overflow: hidden;
-  border-radius: 3px;
-}
-.linen {
-  position: absolute;
-  inset: -25px auto -25px 12%;
-  width: 32%;
-  background: repeating-linear-gradient(
-    90deg,
-    #d5ceaf,
-    #d5ceaf 8px,
-    #c2b99a 8px,
-    #c2b99a 9px
-  );
-  transform: rotate(-15deg);
-}
-.plate {
-  position: absolute;
-  top: 0;
-  left: 35%;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: #eee2c4;
-  box-shadow:
-    inset 0 0 0 8px #fff6df,
-    inset 0 0 0 10px #c8b895,
-    10px 12px 20px #071f3038;
-}
-.food {
-  position: absolute;
-  inset: 29px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #e6b66d, #b8623a 75%);
-  box-shadow: inset 0 0 0 8px #be9859;
-}
-.food i,
-.food b,
-.food em {
-  position: absolute;
-  width: 30px;
-  height: 10px;
-  background: #436e37;
-  border-radius: 50%;
-  top: 12px;
-  left: 7px;
-  transform: rotate(-35deg);
-}
-.food b {
-  top: 32px;
-  left: 36px;
-  transform: rotate(35deg);
-}
-.food em {
-  top: 48px;
-  left: 12px;
-  transform: rotate(-10deg);
-}
-.side-plate {
-  position: absolute;
-  right: 9%;
-  top: 38px;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    #64864e 0 22%,
-    #c7d1a6 24% 57%,
-    #f3efd9 60%
-  );
-  box-shadow: 8px 8px 15px #071f3038;
-}
+
 /* Méthode et ressources */
 .method {
   background: linear-gradient(180deg, #0b1422b3, #0b142233);
@@ -2508,220 +2282,7 @@ button:active:not(:disabled),
   margin-left: 8px;
   color: #8fa5c5;
 }
-/* Deux directions artistiques pour les nouveaux concepts */
-.barber-art {
-  padding: 26px;
-  background: #161b20;
-  color: #f4dec1;
-}
-.barber-art .art-nav {
-  border-bottom: 1px solid #e8c9a044;
-  padding-bottom: 18px;
-}
-.barber-art .art-nav b {
-  font:
-    600 18px "Space Grotesk",
-    sans-serif;
-  letter-spacing: 1px;
-}
-.barber-art .art-nav b span {
-  display: block;
-  margin-top: 3px;
-  font-size: 7px;
-  font-weight: 400;
-  letter-spacing: 4px;
-}
-.barber-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  gap: 12px;
-  min-height: 250px;
-  padding: 20px 0;
-}
-.barber-layout small,
-.artisan-layout small {
-  font-size: 6px;
-  letter-spacing: 1.2px;
-}
-.barber-art h3 {
-  font:
-    500 clamp(25px, 3vw, 39px)/1.1 "Space Grotesk",
-    sans-serif;
-  letter-spacing: -1.2px;
-  margin: 20px 0;
-}
-.barber-art h3 em {
-  color: #ddac78;
-}
-.art-mini-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 7px;
-  border-bottom: 1px solid currentColor;
-  padding: 8px 0;
-}
-.barber-mirror {
-  position: relative;
-  min-height: 223px;
-  border: 5px solid #a48157;
-  border-radius: 100px 100px 6px 6px;
-  background:
-    radial-gradient(ellipse at 30% 20%, #8c9c9b77, transparent 60%),
-    linear-gradient(135deg, #2d393c, #111a21);
-  box-shadow:
-    inset 0 0 0 3px #0c1016,
-    0 12px 25px #0005;
-}
-.mirror-mark {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font:
-    400 11px Georgia,
-    serif;
-  opacity: 0.8;
-}
-.mirror-mark b {
-  display: block;
-  font-size: 62px;
-  line-height: 1;
-}
-.barber-pole {
-  position: absolute;
-  width: 18px;
-  height: 95px;
-  left: -18px;
-  bottom: 30px;
-  border: 2px solid #c6b99e;
-  border-radius: 12px;
-  background: repeating-linear-gradient(
-    145deg,
-    #d1c7b0 0 12px,
-    #7c3f32 12px 23px,
-    #d1c7b0 23px 33px,
-    #264c68 33px 44px
-  );
-  box-shadow: 4px 4px 13px #0007;
-}
-.mirror-shelf {
-  position: absolute;
-  height: 8px;
-  bottom: 12px;
-  left: -12px;
-  right: -12px;
-  background: linear-gradient(#b0906b, #725437);
-  box-shadow: 0 7px 12px #0005;
-}
-.barber-art .art-bottom,
-.artisan-art .art-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 6px;
-  letter-spacing: 1px;
-}
-.artisan-art {
-  padding: 26px;
-  background: #e3e9e6;
-  color: #203d45;
-}
-.artisan-art .art-nav b {
-  font:
-    500 23px/0.9 "Space Grotesk",
-    sans-serif;
-  letter-spacing: -1px;
-}
-.artisan-art .art-nav b span {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 32px;
-}
-.artisan-art .art-nav > span {
-  font-size: 6px;
-  letter-spacing: 1px;
-}
-.artisan-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 10px;
-  padding: 23px 0;
-  min-height: 272px;
-}
-.artisan-art h3 {
-  font:
-    500 clamp(27px, 3vw, 40px)/1.02 "Space Grotesk",
-    sans-serif;
-  margin: 20px 0;
-  letter-spacing: -1.7px;
-}
-.artisan-art h3 em {
-  color: #926744;
-}
-.wood-scene {
-  position: relative;
-  height: 225px;
-  background: #cfdbd8;
-  border-radius: 2px 2px 80px 2px;
-  overflow: hidden;
-}
-.wood-panel {
-  position: absolute;
-  inset: 16px 24px 43px 30px;
-  background: repeating-linear-gradient(
-    90deg,
-    #906a44 0 6px,
-    #ae875e 6px 10px,
-    #6a4d34 10px 12px,
-    #b98c5d 12px 19px
-  );
-  box-shadow: 10px 12px 20px #2c382c55;
-  transform: skewY(-7deg);
-}
-.wood-bench {
-  position: absolute;
-  bottom: 43px;
-  left: 18px;
-  right: 16px;
-  height: 18px;
-  background: linear-gradient(#b88b5d, #7d5639);
-  box-shadow: 0 12px 15px #31483b33;
-  transform: skewY(-7deg);
-}
-.wood-bench::before,
-.wood-bench::after {
-  content: "";
-  position: absolute;
-  top: 16px;
-  width: 10px;
-  height: 35px;
-  background: #724e33;
-}
-.wood-bench::before {
-  left: 9px;
-}
-.wood-bench::after {
-  right: 9px;
-}
-.measure-line {
-  position: absolute;
-  top: 30px;
-  left: 7px;
-  writing-mode: vertical-rl;
-  font-size: 5px;
-  letter-spacing: 1px;
-}
-.wood-scene > svg {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  opacity: 0.7;
-}
+
 .barber-demo {
   color: #f3dfc5;
   background: #171d23;
@@ -2850,24 +2411,7 @@ button:active:not(:disabled),
   .art {
     padding: 20px;
   }
-  .art-nav > span {
-    display: none;
-  }
-  .alba-layout {
-    gap: 10px;
-  }
-  .alba h3 {
-    font-size: 32px;
-  }
-  .sola h3 {
-    font-size: 34px;
-  }
-  .side-plate {
-    right: 3%;
-  }
-  .plate {
-    left: 27%;
-  }
+
   .flow-node {
     font-size: 9px;
     padding: 11px 9px;
@@ -3067,41 +2611,12 @@ button:active:not(:disabled),
   .work-grid {
     gap: 44px 20px;
   }
-  .alba-layout {
-    grid-template-columns: 1fr 1fr;
-  }
-  .alba h3 {
-    font-size: 29px;
-  }
+
   .art {
     padding: 17px;
     min-height: 330px;
   }
-  .alba .art-nav b {
-    font-size: 18px;
-  }
-  .still-life {
-    height: 200px;
-  }
-  .pot {
-    width: 34px;
-    right: 4%;
-  }
-  .bottle {
-    left: 25%;
-  }
-  .sola h3 {
-    font-size: 31px;
-  }
-  .table-scene {
-    height: 135px;
-  }
-  .plate {
-    left: 16%;
-  }
-  .side-plate {
-    right: -10px;
-  }
+
   .about-grid {
     gap: 35px;
     grid-template-columns: 1fr 1.15fr;
@@ -3296,30 +2811,7 @@ button:active:not(:disabled),
     min-height: 350px;
     padding: 22px;
   }
-  .alba .art-nav b {
-    font-size: 21px;
-  }
-  .alba h3 {
-    font-size: 35px;
-  }
-  .still-life {
-    height: 225px;
-  }
-  .bottle {
-    left: 30%;
-  }
-  .pot {
-    right: 7%;
-  }
-  .sola h3 {
-    font-size: 38px;
-  }
-  .plate {
-    left: 29%;
-  }
-  .side-plate {
-    right: 4%;
-  }
+
   .method-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -3576,26 +3068,7 @@ button:active:not(:disabled),
     font-size: clamp(39px, 10vw, 60px);
     letter-spacing: -2px;
   }
-  .barber-art,
-  .artisan-art {
-    padding: 20px;
-  }
-  .barber-art h3,
-  .artisan-art h3 {
-    font-size: clamp(24px, 6vw, 35px);
-  }
-  .barber-layout,
-  .artisan-layout {
-    min-height: 230px;
-  }
-  .barber-mirror,
-  .wood-scene {
-    min-height: 190px;
-    height: 190px;
-  }
-  .barber-art .art-nav b {
-    font-size: 16px;
-  }
+
 }
 @media (max-width: 360px) {
   .container {
@@ -3632,21 +3105,7 @@ button:active:not(:disabled),
   .art {
     padding: 16px;
   }
-  .alba h3 {
-    font-size: 29px;
-  }
-  .still-life {
-    height: 216px;
-  }
-  .sola h3 {
-    font-size: 32px;
-  }
-  .side-plate {
-    right: -5px;
-  }
-  .plate {
-    left: 20%;
-  }
+
   .identity-person h3 {
     font-size: 45px;
   }
@@ -3695,4 +3154,672 @@ button:active:not(:disabled),
   .tilt {
     transform: none !important;
   }
+}
+
+/* ==========================================================================
+   Verre dépoli (façon Apple) et bordures harmonisées
+   Les surfaces floutent le relief 3D derrière elles au lieu de le laisser
+   traverser le contenu. Bordure dégradée : reflet en haut à gauche,
+   touche orange en bas à droite.
+   ========================================================================== */
+:root {
+  --glass: rgba(13, 21, 35, 0.62);
+  --glass-hover: rgba(20, 33, 54, 0.72);
+  --glass-blur: blur(22px) saturate(160%);
+  --edge: linear-gradient(
+    150deg,
+    rgba(196, 220, 255, 0.3),
+    rgba(196, 220, 255, 0.06) 38%,
+    rgba(196, 220, 255, 0.04) 70%,
+    rgba(255, 176, 120, 0.22)
+  );
+  --edge-hover: linear-gradient(
+    150deg,
+    rgba(196, 220, 255, 0.6),
+    rgba(156, 199, 255, 0.16) 45%,
+    rgba(255, 176, 120, 0.45)
+  );
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --shadow-soft:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 28px 60px -24px rgba(0, 0, 0, 0.65);
+}
+.panel,
+.method-card,
+.faq-list,
+.navigation {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--glass), var(--glass)) padding-box,
+    var(--edge) border-box;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-soft);
+}
+.panel {
+  border-radius: var(--radius-lg);
+}
+.service-card:hover,
+.service-card:focus-within,
+.resource-card:hover {
+  background:
+    linear-gradient(var(--glass-hover), var(--glass-hover)) padding-box,
+    var(--edge-hover) border-box;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 30px 70px -22px rgba(0, 0, 0, 0.7),
+    0 0 40px -12px rgba(156, 199, 255, 0.25);
+}
+/* Menu : capsule de verre plus dense pour rester lisible partout */
+.navigation {
+  --glass: rgba(9, 15, 27, 0.7);
+  border-radius: 18px;
+}
+.navigation nav > a {
+  border-radius: 10px;
+}
+/* Méthode : chaque étape devient une carte */
+.method-card {
+  border-radius: var(--radius-md);
+  padding: 24px 22px 26px;
+  transition:
+    transform 0.4s var(--ease),
+    background 0.35s;
+}
+.method-card > span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 176, 120, 0.1);
+  border: 1px solid rgba(255, 176, 120, 0.25);
+}
+/* FAQ : liste regroupée dans un panneau */
+.faq-list {
+  border-radius: var(--radius-lg);
+  padding: 6px 26px;
+}
+.faq-list details:last-child {
+  border-bottom: 0;
+}
+/* Aperçus de projets : même rayon et bordure lumineuse */
+.project-preview {
+  border-radius: var(--radius-lg);
+  border-color: rgba(196, 220, 255, 0.16);
+}
+.project-preview:hover {
+  border-color: rgba(196, 220, 255, 0.45);
+}
+/* Bandeaux pleine largeur : verre plus discret */
+.tools,
+.footer {
+  background: rgba(8, 14, 25, 0.55);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+.method {
+  background: linear-gradient(180deg, rgba(11, 20, 34, 0.55), rgba(11, 20, 34, 0.25));
+}
+/* Champs du formulaire */
+.contact-form input,
+.contact-form textarea {
+  border-radius: 12px;
+  background: rgba(5, 11, 21, 0.55);
+  border-color: rgba(157, 188, 227, 0.18);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(255, 176, 120, 0.55);
+  box-shadow: 0 0 0 4px rgba(255, 176, 120, 0.12);
+}
+@media (hover: hover) and (pointer: fine) {
+  .method-card:hover {
+    transform: translateY(-4px);
+    --glass: var(--glass-hover);
+  }
+}
+/* Mobile : flou allégé pour préserver la fluidité */
+@media (max-width: 700px) {
+  :root {
+    --glass: rgba(13, 21, 35, 0.74);
+    --glass-blur: blur(14px) saturate(150%);
+    --radius-lg: 18px;
+  }
+  .faq-list {
+    padding: 2px 18px;
+  }
+}
+/* Navigateurs sans flou : surfaces plus opaques */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --glass: rgba(13, 21, 35, 0.92);
+    --glass-hover: rgba(20, 33, 54, 0.95);
+  }
+}
+
+/* ==========================================================================
+   Les 4 concepts : une identité propre à chacun
+   Tailles en unités de conteneur (cqi) : le visuel s'adapte à la carte.
+   ========================================================================== */
+.art {
+  position: relative;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Maison Alba — douceur : rose poudré et sauge, serif élégant, composition centrée */
+.art-alba {
+  background: radial-gradient(120% 80% at 50% 0%, #fbf1ec, #f0ddd6 70%);
+  color: #4b3a35;
+  text-align: center;
+}
+.alba-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: max(7px, 2.2cqi);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a6f66;
+}
+.alba-top b {
+  font:
+    italic 400 max(14px, 5.2cqi) "Playfair Display",
+    serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #4b3a35;
+}
+.alba-stage {
+  position: relative;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  margin: 4cqi 0;
+}
+.alba-arch {
+  position: absolute;
+  width: 46cqi;
+  height: 58cqi;
+  max-height: 100%;
+  border-radius: 999px 999px 18px 18px;
+  background: linear-gradient(180deg, #c7d3bd, #8a9a7b);
+  overflow: hidden;
+  box-shadow: inset 0 -20px 40px #6d7d5f44;
+}
+.alba-sun {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  width: 16cqi;
+  height: 16cqi;
+  margin-left: -8cqi;
+  border-radius: 50%;
+  background: #f6d3c2;
+  box-shadow: 0 0 30px #fbe4d8;
+}
+.alba-stem {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2px;
+  height: 40%;
+  background: #5f6f52;
+}
+.alba-stem::before,
+.alba-stem::after {
+  content: "";
+  position: absolute;
+  width: 9cqi;
+  height: 4cqi;
+  border-radius: 50%;
+  background: #6c7d5d;
+  top: 20%;
+}
+.alba-stem::before {
+  right: 1px;
+  transform: rotate(25deg);
+}
+.alba-stem::after {
+  left: 1px;
+  top: 45%;
+  transform: rotate(-25deg);
+}
+.art-alba h3 {
+  position: relative;
+  margin: 0;
+  font:
+    400 max(26px, 9.5cqi) / 1.02 "Playfair Display",
+    serif;
+  letter-spacing: -0.02em;
+  color: #3e2f2a;
+  text-shadow: 0 2px 18px #fbf1ecaa;
+}
+.art-alba h3 em {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: #b5664f;
+}
+.alba-pills {
+  display: flex;
+  justify-content: center;
+  gap: 2cqi;
+}
+.alba-pills span {
+  padding: 1.6cqi 3.6cqi;
+  border: 1px solid #b98f8255;
+  border-radius: 999px;
+  font-size: max(8px, 2.4cqi);
+  color: #6b544c;
+  background: #fff8f5aa;
+}
+
+/* Sola — généreux et chaleureux : rouge tomate, crème, typographie très grasse */
+.art-sola {
+  background: #d9472b;
+  color: #fff1e0;
+}
+.sola-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.sola-top b {
+  font:
+    900 max(20px, 7cqi) "Fraunces",
+    serif;
+  letter-spacing: -0.04em;
+}
+.sola-top b span {
+  color: #f6c453;
+}
+.sola-top > span {
+  font-size: max(8px, 2.3cqi);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.art-sola h3 {
+  position: relative;
+  z-index: 1;
+  margin: 6cqi 0 0;
+  font:
+    900 max(34px, 13cqi) / 0.88 "Fraunces",
+    serif;
+  letter-spacing: -0.045em;
+  max-width: 62%;
+}
+.sola-plate {
+  position: absolute;
+  right: -10cqi;
+  bottom: -12cqi;
+  width: 58cqi;
+  height: 58cqi;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff6e8 52%, #f3dfc3 53%, #fff6e8 60%);
+  box-shadow: -14px 18px 40px #7a1f0f55;
+}
+.sola-plate i {
+  position: absolute;
+  border-radius: 50%;
+}
+.sola-plate i:nth-child(1) {
+  inset: 30% 34% 36% 26%;
+  background: #f6c453;
+}
+.sola-plate i:nth-child(2) {
+  inset: 40% 22% 26% 44%;
+  background: #6e9a4a;
+}
+.sola-plate i:nth-child(3) {
+  inset: 26% 40% 50% 40%;
+  background: #c8361d;
+}
+.sola-badge {
+  position: absolute;
+  right: 4cqi;
+  bottom: 40cqi;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 17cqi;
+  height: 17cqi;
+  border-radius: 50%;
+  background: #f6c453;
+  color: #7a1f0f;
+  font:
+    900 max(8px, 2.6cqi) / 1 "Fraunces",
+    serif;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-14deg);
+}
+.sola-ticket {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: auto 0 0;
+  padding: 3cqi 3.5cqi;
+  width: 46%;
+  background: #fff1e0;
+  color: #7a1f0f;
+  border-radius: 4px;
+  font-size: max(8px, 2.5cqi);
+  font-weight: 700;
+  box-shadow: 0 10px 30px #7a1f0f44;
+}
+.sola-ticket li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0.8cqi 0;
+}
+.sola-ticket i {
+  flex: 1;
+  border-bottom: 1px dashed #7a1f0f55;
+}
+
+/* Atelier N°7 — noir et laiton, condensé, enseigne et tarifs */
+.art-barber {
+  background: radial-gradient(90% 70% at 70% 20%, #1d1b18, #0c0c0d 70%);
+  color: #f1e5cf;
+  padding-left: calc(25px + 5cqi);
+}
+.barber-stripes {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4cqi;
+  background: repeating-linear-gradient(
+    -45deg,
+    #c9a46a 0 8px,
+    #f1e5cf 8px 16px,
+    #8f2d2a 16px 24px,
+    #f1e5cf 24px 32px
+  );
+  opacity: 0.9;
+}
+.barber-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 3cqi;
+  border-bottom: 1px solid #c9a46a55;
+  font-size: max(7px, 2.2cqi);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c9a46a;
+}
+.barber-head b {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font:
+    400 max(15px, 5.4cqi) "Bebas Neue",
+    sans-serif;
+  letter-spacing: 0.12em;
+  color: #f1e5cf;
+}
+.art-barber h3 {
+  margin: 5cqi 0;
+  font:
+    400 max(44px, 17cqi) / 0.86 "Bebas Neue",
+    sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.art-barber h3 em {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  color: #c9a46a;
+}
+.barber-menu {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  font-size: max(9px, 2.7cqi);
+}
+.barber-menu li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 1.4cqi 0;
+}
+.barber-menu i {
+  flex: 1;
+  border-bottom: 1px dotted #c9a46a77;
+}
+.barber-menu b {
+  font:
+    400 max(13px, 4cqi) "Bebas Neue",
+    sans-serif;
+  letter-spacing: 0.06em;
+  color: #c9a46a;
+}
+
+/* Atelier Noyer — kraft et vert forêt, papier millimétré, plan technique */
+.art-artisan {
+  background-color: #ebe1cf;
+  background-image:
+    linear-gradient(#2f4a3a12 1px, transparent 1px),
+    linear-gradient(90deg, #2f4a3a12 1px, transparent 1px);
+  background-size: 5cqi 5cqi;
+  color: #2f4a3a;
+}
+.artisan-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.artisan-top b {
+  font:
+    700 max(16px, 6cqi) / 0.9 "Space Grotesk",
+    sans-serif;
+  letter-spacing: -0.04em;
+}
+.artisan-top span,
+.artisan-spec span,
+.dim {
+  font-family: "Space Mono", monospace;
+  font-size: max(7px, 2.1cqi);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.artisan-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4cqi;
+}
+.art-artisan h3 {
+  margin: 0;
+  font:
+    700 max(26px, 9cqi) / 0.95 "Space Grotesk",
+    sans-serif;
+  letter-spacing: -0.05em;
+}
+.art-artisan h3 em {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  color: #b86b3c;
+}
+.artisan-drawing {
+  position: relative;
+  height: 52cqi;
+  max-height: 100%;
+  padding: 0 5cqi 6cqi 0;
+}
+.artisan-drawing svg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #b86b3c;
+}
+.artisan-cabinet {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  border: 2px solid #2f4a3a;
+  background: #c99a6b33;
+}
+.artisan-cabinet i {
+  border-bottom: 1px solid #2f4a3a;
+}
+.artisan-cabinet i:last-child {
+  border-bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 49.5%,
+    #2f4a3a 49.5% 50.5%,
+    transparent 50.5%
+  );
+}
+.dim {
+  position: absolute;
+  color: #b86b3c;
+}
+.dim-w {
+  left: 0;
+  right: 5cqi;
+  bottom: 0;
+  text-align: center;
+  border-top: 1px solid #b86b3c;
+  padding-top: 2px;
+}
+.dim-h {
+  right: -1cqi;
+  top: 50%;
+  transform: translate(50%, -50%) rotate(90deg);
+}
+.artisan-spec {
+  display: flex;
+  gap: 2cqi;
+  flex-wrap: wrap;
+}
+.artisan-spec span {
+  padding: 1.2cqi 2.4cqi;
+  border: 1px solid #2f4a3a55;
+  background: #f6f0e4;
+}
+
+/* Pages projet : chaque thème reprend l'identité de son visuel */
+.alba-demo {
+  background: radial-gradient(90% 60% at 50% 0%, #fcf3ef, #f2e2dc 70%);
+  color: #4b3a35;
+}
+.alba-demo h1,
+.alba-demo h2,
+.alba-demo .demo-nav strong {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+.alba-demo em {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: #b5664f;
+}
+.alba-demo p,
+.alba-demo .eyebrow {
+  color: #7a625a;
+}
+.alba-demo .demo-offer {
+  background: #fff8f5b3;
+  border-color: #b98f8240;
+  border-radius: 20px;
+}
+.sola-demo {
+  background: #d9472b;
+  color: #fff1e0;
+}
+.sola-demo h1,
+.sola-demo h2,
+.sola-demo .demo-nav strong {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+.sola-demo em {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  font-style: normal;
+  color: #f6c453;
+}
+.sola-demo p,
+.sola-demo .eyebrow {
+  color: #ffe1c7;
+}
+.sola-demo .demo-offer {
+  background: #fff1e0;
+  color: #7a1f0f;
+  border-color: transparent;
+  border-radius: 6px;
+}
+.sola-demo .demo-offer p,
+.sola-demo .demo-offer .eyebrow {
+  color: #9b3a24;
+}
+.barber-demo {
+  background: radial-gradient(70% 50% at 80% 0%, #1d1b18, #0c0c0d 70%);
+  color: #f1e5cf;
+}
+.barber-demo h1,
+.barber-demo h2,
+.barber-demo .demo-nav strong {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.barber-demo .demo-hero h1 {
+  font-size: clamp(60px, 8vw, 110px);
+  line-height: 0.88;
+}
+.barber-demo em {
+  font-family: inherit;
+  font-style: normal;
+  color: #c9a46a;
+}
+.barber-demo .demo-offer {
+  background: #ffffff05;
+  border-color: #c9a46a44;
+  border-radius: 2px;
+}
+.artisan-demo {
+  background-color: #ebe1cf;
+  background-image:
+    linear-gradient(#2f4a3a10 1px, transparent 1px),
+    linear-gradient(90deg, #2f4a3a10 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: #2f4a3a;
+}
+.artisan-demo h1,
+.artisan-demo h2,
+.artisan-demo .demo-nav strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.artisan-demo em {
+  font-family: inherit;
+  font-style: normal;
+  color: #b86b3c;
+}
+.artisan-demo .eyebrow,
+.artisan-demo .tiny-label {
+  font-family: "Space Mono", monospace;
+  color: #4d6656;
+}
+.artisan-demo .demo-offer {
+  background: #f6f0e4;
+  border-color: #2f4a3a40;
+  border-radius: 0;
 }
