@@ -3268,6 +3268,17 @@ button:active:not(:disabled),
   border-radius: 12px;
   background: rgba(5, 11, 21, 0.55);
   border-color: rgba(157, 188, 227, 0.18);
+  font-size: 14px;
+}
+/* Écrans tactiles : 16 px minimum, sinon iOS zoome automatiquement
+   sur le champ quand le clavier apparaît. */
+@media (pointer: coarse), (max-width: 850px) {
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    font-size: 16px;
+  }
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
