@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { ArrowUpRight, Mail, Phone, Copy, Send } from "lucide-react";
 import { config } from "./config";
 import { Reveal } from "./Effects";
+import Socials from "./Socials";
 
 export default function Contact() {
   const empty = {
@@ -163,6 +164,8 @@ export default function Contact() {
             <span>Une précision ? Envoyer un SMS</span>
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
+
+          <Socials className="contact-socials" />
         </Reveal>
 
         <Reveal>

@@ -27,6 +27,7 @@ import {
   Layers,
   ScanLine,
   BookOpen,
+  BellRing,
   Plus,
   Mail,
   Phone,
@@ -47,6 +48,7 @@ import {
 import { LegalPage, ProjectPage, NotFound, ErrorBoundary } from "./Pages";
 import Contact from "./Contact";
 import Background3D from "./Background3D";
+import Socials from "./Socials";
 import "@fontsource/dm-sans/latin-400.css";
 import "@fontsource/dm-sans/latin-500.css";
 import "@fontsource/dm-sans/latin-600.css";
@@ -649,8 +651,130 @@ function Method() {
     </section>
   );
 }
+// Liste d’attente : chaque inscription arrive par Formspree avec les ressources choisies.
+function Waitlist({ interests, setInterests, email }) {
+  const [form, setForm] = useState({ email: "", _gotcha: "" });
+  const [state, setState] = useState({ sending: false, ok: false, message: "" });
+  function toggle(title) {
+    setInterests((list) =>
+      list.includes(title) ? list.filter((t) => t !== title) : [...list, title],
+    );
+  }
+  async function submit(event) {
+    event.preventDefault();
+    if (state.sending || form._gotcha) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      setState({ sending: false, ok: false, message: "Vérifiez votre adresse e-mail." });
+      return;
+    }
+    setState({ sending: true, ok: false, message: "" });
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch(config.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email: form.email.trim(),
+          ressources: interests.length ? interests.join(", ") : "Toutes",
+          _gotcha: "",
+          subject: "Raoul.CJ — Liste d’attente des ressources",
+        }),
+        signal: controller.signal,
+      });
+      const data = response.ok ? await response.json() : null;
+      if (!data || data.ok !== true) throw new Error();
+      setForm({ email: "", _gotcha: "" });
+      setState({
+        sending: false,
+        ok: true,
+        message: "C’est noté ! Vous serez prévenu(e) dès la sortie.",
+      });
+    } catch {
+      setState({
+        sending: false,
+        ok: false,
+        message: "L’inscription n’a pas pu être confirmée. Réessayez plus tard ou écrivez-moi.",
+      });
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  return (
+    <Reveal>
+      <form id="waitlist" className="panel waitlist" onSubmit={submit} aria-busy={state.sending}>
+        <div className="waitlist-intro">
+          <span className="waitlist-icon">
+            <BellRing size={20} />
+          </span>
+          <div>
+            <h3>Soyez prévenu(e) de la sortie.</h3>
+            <p>Choisissez ce qui vous intéresse : un seul e-mail, le jour du lancement.</p>
+          </div>
+        </div>
+        <div className="waitlist-choices" role="group" aria-label="Ressources qui vous intéressent">
+          {products.map((p) => (
+            <button
+              type="button"
+              key={p.title}
+              aria-pressed={interests.includes(p.title)}
+              onClick={() => toggle(p.title)}
+            >
+              {interests.includes(p.title) && <Check size={14} />}
+              {p.title}
+            </button>
+          ))}
+        </div>
+        <div className="trap" aria-hidden="true">
+          <input
+            tabIndex={-1}
+            autoComplete="off"
+            value={form._gotcha}
+            onChange={(e) => setForm({ ...form, _gotcha: e.target.value })}
+          />
+        </div>
+        <div className="waitlist-row">
+          <label className="sr-only" htmlFor="waitlist-email">
+            Votre e-mail
+          </label>
+          <input
+            id="waitlist-email"
+            ref={email}
+            type="email"
+            required
+            maxLength={140}
+            autoComplete="email"
+            placeholder="vous@exemple.fr"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            disabled={state.sending}
+          />
+          <button className="button primary" disabled={state.sending}>
+            {state.sending ? "Envoi…" : "Me prévenir"}
+            <ArrowUpRight size={17} />
+          </button>
+        </div>
+        <p className="form-note">
+          Votre e-mail sert uniquement à vous prévenir de la sortie, via Formspree.{" "}
+          <a href="/confidentialite/">Données personnelles</a>.
+        </p>
+        {state.message && (
+          <p className={"feedback " + (state.ok ? "success" : "error")} role="status">
+            {state.message}
+          </p>
+        )}
+      </form>
+    </Reveal>
+  );
+}
 function Resources() {
-  const [notice, setNotice] = useState("");
+  const [interests, setInterests] = useState([]);
+  const email = useRef(null);
+  function notify(title) {
+    setInterests((list) => (list.includes(title) ? list : [...list, title]));
+    document.getElementById("waitlist")?.scrollIntoView({ block: "center" });
+    email.current?.focus({ preventScroll: true });
+  }
   return (
     <section className="section" id="ressources">
       <div className="container">
@@ -705,15 +829,9 @@ function Resources() {
                           <ArrowUpRight size={16} />
                         </a>
                       ) : (
-                        <button
-                          onClick={() =>
-                            setNotice(
-                              "La boutique est en préparation. Aucun achat n’est encore proposé.",
-                            )
-                          }
-                        >
-                          Bientôt disponible
-                          <ArrowUpRight size={16} />
+                        <button onClick={() => notify(p.title)}>
+                          Me prévenir
+                          <BellRing size={15} />
                         </button>
                       )}
                     </div>
@@ -723,9 +841,11 @@ function Resources() {
             );
           })}
         </div>
-        <p className="fine-print" role="status">
-          {notice}
-        </p>
+        <Waitlist
+          interests={interests}
+          setInterests={setInterests}
+          email={email}
+        />
       </div>
     </section>
   );
@@ -776,6 +896,7 @@ function About() {
               numériques cohérentes, avec une attention particulière portée aux
               détails.
             </p>
+            <Socials className="identity-socials" />
             {cvReady ? (
               <a className="button ghost" href={config.cv} download>
                 <Download size={17} />
@@ -881,6 +1002,7 @@ function Footer() {
               <Phone size={16} />
               {config.phoneLabel}
             </a>
+            <Socials className="footer-socials" />
             <a href="/#accueil" className="back-top">
               Retour en haut
               <ArrowUp size={15} />

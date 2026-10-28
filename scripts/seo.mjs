@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { config, faq, services } from "../src/config.js";
+import { config, faq, services, socials } from "../src/config.js";
 import { projects } from "../src/projects.js";
 import { render } from "../.prerender/entry-server.js";
 
@@ -154,6 +154,9 @@ for (const page of pages) {
                   url: origin + "/#apropos",
                   image: origin + config.portrait,
                   jobTitle: "Développeur web et designer freelance",
+                  sameAs: socials
+                    .map((s) => s.url)
+                    .filter((u) => u.startsWith("https://")),
                   knowsAbout: [
                     "Développement web",
                     "React",

@@ -26,6 +26,13 @@ export const config = {
     logs: "",
   },
 };
+// Réseaux : seuls les liens HTTPS renseignés s'affichent sur le site.
+export const socials = [
+  { name: "LinkedIn", icon: "linkedin", url: "https://www.linkedin.com/in/jean-raoul-chocolat-1b3778350/" },
+  { name: "GitHub", icon: "github", url: "https://github.com/raoul29cj" },
+  { name: "Instagram", icon: "instagram", url: "https://www.instagram.com/raoul_cj/" },
+  { name: "Facebook", icon: "facebook", url: "" },
+];
 export const services = [
   {
     title: "Sites web sur mesure",
@@ -138,7 +145,7 @@ export const faq = [
   ],
   [
     "Les ressources numériques sont-elles disponibles ?",
-    "Pas encore : elles sont en préparation. Écrivez-moi pour être prévenu(e) de leur sortie.",
+    "Pas encore : elles sont en préparation. Inscrivez-vous à la liste d’attente (section Ressources) pour être prévenu(e) le jour de leur sortie.",
   ],
 ];
 export const journey = [

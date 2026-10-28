@@ -164,6 +164,12 @@ export function LegalPage({ type }) {
             votre initiative.
           </p>
           <p>
+            Si vous vous inscrivez à la liste d’attente des ressources, votre
+            e-mail et les ressources choisies sont transmis à Formspree. Ils
+            servent uniquement à vous prévenir de leur sortie et sont supprimés
+            sur simple demande par e-mail.
+          </p>
+          <p>
             Les demandes de devis relèvent des mesures précontractuelles prises
             à votre demande. Les autres échanges reposent sur l’intérêt légitime
             à répondre aux personnes qui me contactent.
