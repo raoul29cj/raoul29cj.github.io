@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
+  AnimatePresence,
   MotionConfig,
   motion,
   useReducedMotion,
@@ -27,7 +28,6 @@ import {
   ScanLine,
   BookOpen,
   Plus,
-  ChevronDown,
   Mail,
   Phone,
   Globe,
@@ -114,10 +114,10 @@ function Header() {
         <Brand />
         <nav id="main-menu" aria-label="Navigation principale">
           {[
-            ["Services", "services"],
             ["Projets", "projets"],
-            ["Ressources", "ressources"],
+            ["Services", "services"],
             ["À propos", "apropos"],
+            ["Ressources", "ressources"],
           ].map(([label, id]) => (
             <a href={"/#" + id} key={id} onClick={() => setOpen(false)}>
               {label}
@@ -220,6 +220,79 @@ function FlowPreview() {
     </Tilt>
   );
 }
+// Vitrine de l'accueil : les projets défilent seuls, pause au survol ou au clavier.
+function HeroShowcase() {
+  const reduced = useReducedMotion();
+  const [index, setIndex] = useState(0),
+    [paused, setPaused] = useState(false);
+  const go = (n) => setIndex((n + projects.length) % projects.length);
+  const p = projects[index];
+  return (
+    <Tilt className="flow-preview panel hero-showcase" strength={10}>
+      <div
+        aria-roledescription="carrousel"
+        aria-label="Projets à la une"
+        onPointerEnter={() => setPaused(true)}
+        onPointerLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+      >
+        <div className="window-bar">
+          <div className="dots">
+            <i />
+            <i />
+            <i />
+          </div>
+          <span>JUNIX / PROJETS À LA UNE</span>
+          <ScanLine size={15} />
+        </div>
+        <a
+          className="showcase-stage"
+          href={"/projets/" + p.id + "/"}
+          aria-label={"Explorer " + p.name}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={p.id}
+              initial={reduced ? false : { opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={reduced ? undefined : { opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ProjectArt id={p.id} />
+            </motion.div>
+          </AnimatePresence>
+        </a>
+        <div className="showcase-footer">
+          <div className="showcase-caption" aria-live={paused ? "polite" : "off"}>
+            <span className="tiny-label">{p.type}</span>
+            <strong>{p.name}</strong>
+          </div>
+          <div className="showcase-controls">
+            <button onClick={() => go(index - 1)} aria-label="Projet précédent">
+              <ArrowLeft size={15} />
+            </button>
+            <span>
+              {pad(index + 1)}/{pad(projects.length)}
+            </span>
+            <button onClick={() => go(index + 1)} aria-label="Projet suivant">
+              <ArrowRight size={15} />
+            </button>
+          </div>
+        </div>
+        {/* La fin de la barre de progression déclenche le projet suivant. */}
+        {!reduced && (
+          <span
+            key={index}
+            className={"showcase-progress" + (paused ? " paused" : "")}
+            onAnimationEnd={() => go(index + 1)}
+            aria-hidden="true"
+          />
+        )}
+      </div>
+    </Tilt>
+  );
+}
 function Hero() {
   return (
     <section className="hero container" id="accueil">
@@ -242,7 +315,7 @@ function Hero() {
               <ArrowUpRight size={18} />
             </a>
             <a className="button ghost" href="/#projets">
-              Explorer les projets
+              Voir mes projets
               <ArrowRight size={17} />
             </a>
           </div>
@@ -253,9 +326,9 @@ function Hero() {
         </Reveal>
       </div>
       <Reveal className="hero-preview" delay={0.2}>
-        <FlowPreview />
+        <HeroShowcase />
       </Reveal>
-      <a className="scroll-indicator" href="/#services">
+      <a className="scroll-indicator" href="/#projets">
         <span>DÉCOUVRIR JUNIX</span>
         <ArrowDown size={15} />
       </a>
@@ -345,7 +418,7 @@ function Services() {
     <section className="section" id="services">
       <div className="container">
         <SectionTitle
-          number="01"
+          number="02"
           label="CE QUE JE PROPOSE"
           text="Créer, corriger, donner une direction. Des prestations utiles, avec un périmètre clair."
         >
@@ -417,12 +490,6 @@ function Services() {
   );
 }
 function Work() {
-  const [expanded, setExpanded] = useState(false);
-  const moreButton = useRef(null);
-  function toggle() {
-    if (expanded) moreButton.current?.focus({ preventScroll: true });
-    setExpanded(!expanded);
-  }
   function card(p, i) {
     return (
       <Reveal key={p.id} delay={(i % 2) * 0.08}>
@@ -433,7 +500,7 @@ function Work() {
             aria-label={"Explorer " + p.name}
           >
             <div className="preview-bar">
-              <span>JUNIX / CONCEPT 0{i + 1}</span>
+              <span>JUNIX / CONCEPT {pad(i + 1)}</span>
               <ArrowUpRight size={17} />
             </div>
             <ProjectArt id={p.id} />
@@ -459,7 +526,7 @@ function Work() {
     <section className="section work" id="projets">
       <div className="container">
         <SectionTitle
-          number="02"
+          number="01"
           label="PROJETS CONCEPTUELS"
           text={`${projects.length} univers, ${projects.length} façons de raconter une activité. Explorez les démonstrations interactives.`}
         >
@@ -467,29 +534,13 @@ function Work() {
           <br />
           <em>Des identités.</em>
         </SectionTitle>
-        <div className="work-grid">{projects.slice(0, 2).map(card)}</div>
-        <div id="more-projects" className="work-more" hidden={!expanded}>
-          {expanded && (
-            <div className="work-grid">
-              {projects.slice(2).map((p, i) => card(p, i + 2))}
-            </div>
-          )}
-        </div>
-        <div className="work-expand">
-          <span>
-            {pad(expanded ? projects.length : 2)} / {pad(projects.length)}{" "}
-            CONCEPTS À EXPLORER
-          </span>
-          <button
-            ref={moreButton}
-            className="button ghost more-projects"
-            onClick={toggle}
-            aria-expanded={expanded}
-            aria-controls="more-projects"
-          >
-            {expanded ? "Réduire les projets" : "Voir plus de projets"}
-            <ChevronDown size={18} />
-          </button>
+        <div className="work-grid">{projects.map(card)}</div>
+        <div className="work-footer">
+          <span>{pad(projects.length)} CONCEPTS À EXPLORER</span>
+          <a className="button ghost" href="/#contact">
+            Un projet dans cet esprit ?
+            <ArrowUpRight size={17} />
+          </a>
         </div>
         <p className="fine-print">
           Ces concepts ne sont pas des missions commandées par des clients.
@@ -502,11 +553,20 @@ function Method() {
   return (
     <section className="section method">
       <div className="container">
-        <SectionTitle number="03" label="UNE MÉTHODE CLAIRE">
-          Moins de flou.
-          <br />
-          <em>Plus de sens.</em>
-        </SectionTitle>
+        <div className="method-intro">
+          <SectionTitle
+            number="03"
+            label="UNE MÉTHODE CLAIRE"
+            text="De l’idée à la mise en ligne, chaque étape est partagée. Cliquez sur les étapes pour les découvrir."
+          >
+            Moins de flou.
+            <br />
+            <em>Plus de sens.</em>
+          </SectionTitle>
+          <Reveal className="method-preview">
+            <FlowPreview />
+          </Reveal>
+        </div>
         <div className="method-grid">
           {[
             [
@@ -561,7 +621,7 @@ function Resources() {
     <section className="section" id="ressources">
       <div className="container">
         <SectionTitle
-          number="04"
+          number="05"
           label="RESSOURCES NUMÉRIQUES"
           text="Des supports pour avancer par vous-même. La boutique est en préparation."
         >
@@ -695,7 +755,7 @@ function About() {
           </div>
         </Reveal>
         <div>
-          <SectionTitle number="05" label="MON PARCOURS">
+          <SectionTitle number="04" label="MON PARCOURS">
             Créatif dans l’approche.
             <br />
             <em>Précis dans le détail.</em>
@@ -736,7 +796,7 @@ function FAQ() {
   return (
     <section className="section faq">
       <div className="container faq-grid">
-        <SectionTitle number="07" label="QUESTIONS FRÉQUENTES">
+        <SectionTitle number="06" label="QUESTIONS FRÉQUENTES">
           Quelques réponses,
           <br />
           <em>avant de se lancer.</em>
@@ -784,14 +844,14 @@ function Footer() {
           </div>
           <nav aria-label="Navigation de pied de page">
             <span className="tiny-label">EXPLORER</span>
-            <a href="/#services">
-              Services <ArrowUpRight size={14} />
-            </a>
             <a href="/#projets">
               Projets <ArrowUpRight size={14} />
             </a>
-            <a href="/#ressources">Ressources</a>
+            <a href="/#services">
+              Services <ArrowUpRight size={14} />
+            </a>
             <a href="/#apropos">Mon parcours</a>
+            <a href="/#ressources">Ressources</a>
           </nav>
           <div>
             <span className="tiny-label">CONTACT</span>
@@ -916,14 +976,14 @@ export function App({ initialPath = "/", initialHash = "" } = {}) {
     content = (
       <main id="content" ref={heading}>
         <Hero />
+        <Work />
         <Tools />
         <Services />
-        <Work />
         <Method />
-        <Resources />
         <About />
-        <Contact />
+        <Resources />
         <FAQ />
+        <Contact />
       </main>
     );
   return (

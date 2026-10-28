@@ -22,6 +22,18 @@ export const projects = [
 export const demoContent = {
   alba: {
     theme: "alba-demo",
+    // Étude de cas : à remplacer par le contenu réel du projet.
+    caseStudy: {
+      need: "Donner envie de réserver un soin en traduisant une atmosphère calme et rassurante, sans surcharge d’informations.",
+      choices: [
+        "Palette crème et terracotta, typographie éditoriale",
+        "Soins classés par catégories, une offre visible à la fois",
+        "Animations lentes qui accompagnent la lecture",
+      ],
+      result:
+        "Une vitrine douce et lisible où chaque soin se découvre en quelques secondes, sur mobile comme sur ordinateur.",
+      skills: ["Direction artistique", "UI design", "React"],
+    },
     title: ["Le temps", "pour soi."],
     intro:
       "Une parenthèse imaginée pour prendre soin de soi, dans une atmosphère douce et attentive.",
@@ -59,6 +71,17 @@ export const demoContent = {
   },
   sola: {
     theme: "sola-demo",
+    caseStudy: {
+      need: "Mettre en valeur une cuisine de saison et rendre la carte simple à parcourir avant de venir.",
+      choices: [
+        "Contrastes affirmés et illustrations culinaires",
+        "Carte organisée en entrées, plats et desserts",
+        "Ton chaleureux, textes courts et appétissants",
+      ],
+      result:
+        "Une carte claire qui donne faim, pensée pour être consultée rapidement sur téléphone.",
+      skills: ["Identité visuelle", "Expérience interactive", "Responsive"],
+    },
     title: ["Le goût", "du moment."],
     intro:
       "Une table imaginée au rythme des saisons. Des produits choisis et le plaisir de recevoir.",
@@ -90,6 +113,17 @@ export const demoContent = {
   },
   barber: {
     theme: "barber-demo",
+    caseStudy: {
+      need: "Affirmer une identité forte et simplifier le choix d’une prestation jusqu’à la prise de rendez-vous.",
+      choices: [
+        "Univers sombre, laiton et typographie marquée",
+        "Prestations avec durées indicatives, comparables d’un coup d’œil",
+        "Parcours de rendez-vous en trois étapes",
+      ],
+      result:
+        "Un parcours direct : on choisit sa prestation, son créneau, et le récapitulatif s’affiche.",
+      skills: ["Identité de marque", "Parcours utilisateur", "React"],
+    },
     title: ["La coupe juste.", "L’allure en plus."],
     intro:
       "Atelier N°7 : un concept de barber contemporain où le geste précis rencontre une identité affirmée. Explorez les prestations et composez un rendez-vous fictif.",
@@ -133,6 +167,17 @@ export const demoContent = {
   },
   artisan: {
     theme: "artisan-demo",
+    caseStudy: {
+      need: "Montrer la qualité du savoir-faire et aider le visiteur à formuler un projet sur mesure.",
+      choices: [
+        "Tons bois et grands espaces pour laisser respirer les réalisations",
+        "Réalisations rangées par usage : agencement, mobilier, finitions",
+        "Choix de la matière intégré au parcours de demande",
+      ],
+      result:
+        "Un portfolio métier qui inspire et guide naturellement vers une demande de projet.",
+      skills: ["Portfolio métier", "Design éditorial", "Formulaire guidé"],
+    },
     title: ["Du bois.", "Du sens. Du sur-mesure."],
     intro:
       "Atelier Noyer : un concept de menuiserie qui raconte la matière, les usages et le soin du détail. Parcourez les réalisations imaginées et préparez un projet fictif.",

@@ -845,7 +845,7 @@ h2 {
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 56px 28px;
 }
 .project-card {
   min-width: 0;
@@ -2046,31 +2046,121 @@ summary {
 .title-line em {
   white-space: nowrap;
 }
-.work-more {
-  margin-top: 32px;
-}
-.work-more[hidden] {
-  display: none;
-}
-.work-expand {
+.work-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   padding-top: 33px;
-  margin-top: 33px;
+  margin-top: 45px;
   border-top: 1px solid var(--line);
 }
-.work-expand > span {
+.work-footer > span {
   color: var(--muted);
   font-size: 10px;
   letter-spacing: 1.4px;
 }
-.more-projects svg {
-  transition: transform 0.35s var(--ease);
+/* Vitrine de projets de l'accueil */
+.hero-showcase {
+  position: relative;
 }
-.more-projects[aria-expanded="true"] svg {
-  transform: rotate(180deg);
+.showcase-stage {
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid #c4d8f315;
+}
+.showcase-stage .art {
+  min-height: 330px;
+}
+.showcase-stage:hover .art {
+  transform: scale(1.025);
+}
+.showcase-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 22px 18px;
+}
+.showcase-caption .tiny-label {
+  font-size: 7px;
+  letter-spacing: 1.3px;
+}
+.showcase-caption strong {
+  display: block;
+  margin-top: 6px;
+  font:
+    600 17px "Space Grotesk",
+    sans-serif;
+  letter-spacing: -0.4px;
+}
+.showcase-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #9fb6d2;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.showcase-controls button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #a9ceff33;
+  border-radius: 50%;
+  background: #ffffff08;
+  color: #d7e6fb;
+  transition:
+    border-color 0.3s,
+    color 0.3s;
+}
+.showcase-controls button:hover,
+.showcase-controls button:focus-visible {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+.showcase-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--orange), #6fa9ff);
+  transform-origin: left;
+  animation: showcase-progress 5.5s linear forwards;
+}
+.showcase-progress.paused {
+  animation-play-state: paused;
+}
+@keyframes showcase-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+/* Méthode : titre et parcours interactif côte à côte */
+.method-intro {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 480px);
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.method-intro .section-heading {
+  margin-bottom: 0;
+}
+@media (max-width: 850px) {
+  .method-intro {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-bottom: 45px;
+  }
+  .showcase-stage .art {
+    min-height: 300px;
+  }
 }
 .service-card:active {
   border-color: #a9ceffb3;
@@ -2183,6 +2273,82 @@ button:active:not(:disabled),
 .demo-summary {
   background: transparent;
   color: inherit;
+}
+/* Étude de cas des pages projet : s'adapte aux couleurs de chaque thème */
+.case-study {
+  padding: 60px 0 70px;
+  border-top: 1px solid #7292b355;
+}
+.case-study h2 {
+  font-size: clamp(32px, 4vw, 47px);
+  letter-spacing: -1.7px;
+  margin-bottom: 38px;
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 38px;
+}
+.case-grid > div {
+  border-top: 1px solid;
+  border-color: color-mix(in srgb, currentColor 25%, transparent);
+  padding-top: 22px;
+}
+.case-step {
+  font-size: 11px;
+  opacity: 0.7;
+}
+.case-grid h3 {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  margin: 16px 0 12px;
+}
+.case-grid p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.case-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.case-grid li {
+  display: flex;
+  gap: 9px;
+}
+.case-grid li svg {
+  margin-top: 4px;
+  opacity: 0.8;
+}
+.case-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 45px;
+}
+.case-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.case-skills > span {
+  font-size: 10px;
+  padding: 7px 11px;
+  border: 1px solid;
+  border-color: color-mix(in srgb, currentColor 30%, transparent);
+  border-radius: 30px;
+}
+@media (max-width: 850px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 .demo-next {
   padding: 30px 0;
@@ -2850,7 +3016,7 @@ button:active:not(:disabled),
     margin-top: 15px;
   }
   .work-grid {
-    gap: 20px;
+    gap: 44px 20px;
   }
   .alba-layout {
     grid-template-columns: 1fr 1fr;
@@ -3298,18 +3464,15 @@ button:active:not(:disabled),
   .tool-item > i {
     margin-left: 15px;
   }
-  .work-expand {
+  .work-footer {
     flex-direction: column;
     align-items: stretch;
     gap: 16px;
   }
-  .work-expand > span {
+  .work-footer > span {
     text-align: center;
   }
-  .work-more {
-    margin-top: 25px;
-  }
-  .work-expand .button {
+  .work-footer .button {
     width: 100%;
     font-size: 11px;
   }

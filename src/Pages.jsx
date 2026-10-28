@@ -444,6 +444,47 @@ export function ProjectPage({ id }) {
             </div>
           )}
         </section>
+        {d.caseStudy && (
+          <section className="case-study" aria-labelledby="case-study-title">
+            <span className="eyebrow">ÉTUDE DE CAS / LE CONCEPT</span>
+            <h2 id="case-study-title">Derrière le design.</h2>
+            <div className="case-grid">
+              <Reveal>
+                <span className="case-step">01</span>
+                <h3>Le besoin</h3>
+                <p>{d.caseStudy.need}</p>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <span className="case-step">02</span>
+                <h3>Mes choix</h3>
+                <ul>
+                  {d.caseStudy.choices.map((c) => (
+                    <li key={c}>
+                      <Check size={14} />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <span className="case-step">03</span>
+                <h3>Le résultat</h3>
+                <p>{d.caseStudy.result}</p>
+              </Reveal>
+            </div>
+            <div className="case-footer">
+              <div className="case-skills">
+                {d.caseStudy.skills.map((s) => (
+                  <span key={s}>{s}</span>
+                ))}
+              </div>
+              <a className="demo-button" href="/#contact">
+                Un projet dans cet esprit ?
+                <ArrowUpRight size={17} />
+              </a>
+            </div>
+          </section>
+        )}
         <div className="demo-next">
           <span className="tiny-label">UN AUTRE UNIVERS À EXPLORER</span>
           <a href={"/projets/" + next.id + "/"}>

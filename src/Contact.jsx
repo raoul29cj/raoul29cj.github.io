@@ -123,7 +123,7 @@ export default function Contact() {
       <div className="container contact-grid">
         <Reveal>
           <span className="eyebrow">
-            06 / PARLONS DE VOTRE PROJET
+            07 / PARLONS DE VOTRE PROJET
           </span>
 
           <h2>
