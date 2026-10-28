@@ -1,6 +1,5 @@
 import { projects as existingProjects } from "./config.js";
 
-// Les deux concepts existants et leurs informations restent dans config.js.
 export const projects = [
   ...existingProjects,
   {
@@ -22,7 +21,7 @@ export const projects = [
 export const demoContent = {
   alba: {
     theme: "alba-demo",
-    // Étude de cas : à remplacer par le contenu réel du projet.
+
     caseStudy: {
       need: "Donner envie de réserver un soin en traduisant une atmosphère calme et rassurante, sans surcharge d’informations.",
       choices: [

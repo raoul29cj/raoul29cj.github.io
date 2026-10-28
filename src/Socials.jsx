@@ -9,7 +9,6 @@ const icons = {
   facebook: Facebook,
 };
 
-// Liens vers les profils : ouverts dans un nouvel onglet, sans transmettre la page d'origine.
 export default function Socials({ className = "" }) {
   const links = socials.filter((s) => /^https:\/\//i.test(s.url));
   if (!links.length) return null;

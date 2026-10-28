@@ -1,5 +1,3 @@
-# Propose chaque mois les mises à jour des dépendances et des actions GitHub,
-# regroupées pour limiter le nombre de demandes de fusion.
 version: 2
 updates:
   - package-ecosystem: npm

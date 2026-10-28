@@ -5,10 +5,10 @@ export const config = {
   phone: "+33744877359",
   phoneLabel: "+33 7 44 87 73 59",
   formEndpoint: "https://formspree.io/f/xppqyyrp",
-  portrait: "/cj.webp", // grande version (partage, Google)
-  avatar: "/cj-120.webp", // petite version affichée (menu, carte de profil)
+  portrait: "/cj.webp",
+  avatar: "/cj-120.webp",
   cv: "/cv-raoul.pdf",
-  // Renseignez le domaine exact, puis indexable: true quand le site est prêt.
+
   siteUrl: "https://raoul29cj.github.io",
   indexable: false,
   shopUrl: "",
@@ -27,11 +27,19 @@ export const config = {
     logs: "",
   },
 };
-// Réseaux : seuls les liens HTTPS renseignés s'affichent sur le site.
+
 export const socials = [
-  { name: "LinkedIn", icon: "linkedin", url: "https://www.linkedin.com/in/jean-raoul-chocolat-1b3778350/" },
+  {
+    name: "LinkedIn",
+    icon: "linkedin",
+    url: "https://www.linkedin.com/in/jean-raoul-chocolat-1b3778350/",
+  },
   { name: "GitHub", icon: "github", url: "https://github.com/raoul29cj" },
-  { name: "Instagram", icon: "instagram", url: "https://www.instagram.com/raoul_cj/" },
+  {
+    name: "Instagram",
+    icon: "instagram",
+    url: "https://www.instagram.com/raoul_cj/",
+  },
   { name: "Facebook", icon: "facebook", url: "" },
 ];
 export const services = [
@@ -75,7 +83,7 @@ export const services = [
     price: "59 €",
   },
 ];
-// Le produit « featured » est mis à la une : il doit parler au même public que les services.
+
 export const products = [
   {
     title: "Visuels entrepreneurs",
@@ -122,7 +130,7 @@ export const projects = [
     tags: ["Direction artistique", "Expérience interactive"],
   },
 ];
-// Questions fréquentes : affichées sur l’accueil et reprises pour Google (FAQPage).
+
 export const faq = [
   [
     "Comment commence un projet ?",

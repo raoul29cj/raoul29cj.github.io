@@ -38,13 +38,7 @@ import {
 } from "lucide-react";
 import { config, services, products, journey, faq } from "./config";
 import { projects } from "./projects";
-import {
-  Reveal,
-  Tilt,
-  Asset,
-  ProjectArt,
-  InteractiveTitle,
-} from "./Effects";
+import { Reveal, Tilt, Asset, ProjectArt, InteractiveTitle } from "./Effects";
 import { LegalPage, ProjectPage, NotFound, ErrorBoundary } from "./Pages";
 import Contact from "./Contact";
 import Background3D from "./Background3D";
@@ -56,9 +50,9 @@ import "@fontsource/dm-sans/latin-700.css";
 import "@fontsource/space-grotesk/latin-500.css";
 import "@fontsource/space-grotesk/latin-600.css";
 import "@fontsource/space-grotesk/latin-700.css";
-// Italique signature des titres (« caractère. », « Plus de sens. »…).
+
 import "@fontsource/instrument-serif/latin-400-italic.css";
-// Polices propres aux 4 concepts (chargées seulement quand elles s'affichent).
+
 import "@fontsource/playfair-display/latin-400.css";
 import "@fontsource/playfair-display/latin-400-italic.css";
 import "@fontsource/fraunces/latin-900.css";
@@ -94,7 +88,7 @@ function Header() {
   const { scrollY, scrollYProgress } = useScroll();
   const reduced = useReducedMotion();
   useMotionValueEvent(scrollY, "change", (y) => setCompact(y > 100));
-  // Menu actif : la section qui traverse le milieu de l'écran est mise en avant.
+
   useEffect(() => {
     const sections = document.querySelectorAll("main#content > section[id]");
     if (!sections.length) return;
@@ -130,59 +124,59 @@ function Header() {
   }, [open]);
   return (
     <>
-    {!reduced && (
-      <motion.span
-        className="scroll-progress"
-        style={{ scaleX: scrollYProgress }}
-        aria-hidden="true"
-      />
-    )}
-    <header
-      ref={ref}
-      className={
-        "navigation " + (compact ? "compact " : "") + (open ? "open" : "")
-      }
-    >
-      <div className="nav-inner">
-        <Brand />
-        <nav id="main-menu" aria-label="Navigation principale">
-          {[
-            ["Projets", "projets"],
-            ["Services", "services"],
-            ["À propos", "apropos"],
-            ["Ressources", "ressources"],
-          ].map(([label, id]) => (
-            <a
-              href={"/#" + id}
-              key={id}
-              className={active === id ? "active" : undefined}
-              aria-current={active === id ? "true" : undefined}
-              onClick={() => setOpen(false)}
-            >
-              {label}
+      {!reduced && (
+        <motion.span
+          className="scroll-progress"
+          style={{ scaleX: scrollYProgress }}
+          aria-hidden="true"
+        />
+      )}
+      <header
+        ref={ref}
+        className={
+          "navigation " + (compact ? "compact " : "") + (open ? "open" : "")
+        }
+      >
+        <div className="nav-inner">
+          <Brand />
+          <nav id="main-menu" aria-label="Navigation principale">
+            {[
+              ["Projets", "projets"],
+              ["Services", "services"],
+              ["À propos", "apropos"],
+              ["Ressources", "ressources"],
+            ].map(([label, id]) => (
+              <a
+                href={"/#" + id}
+                key={id}
+                className={active === id ? "active" : undefined}
+                aria-current={active === id ? "true" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+            <a className="mobile-cta" href="/#contact">
+              Parlons de votre projet
+              <ArrowUpRight size={16} />
             </a>
-          ))}
-          <a className="mobile-cta" href="/#contact">
+          </nav>
+          <a className="button primary nav-cta" href="/#contact">
             Parlons de votre projet
             <ArrowUpRight size={16} />
           </a>
-        </nav>
-        <a className="button primary nav-cta" href="/#contact">
-          Parlons de votre projet
-          <ArrowUpRight size={16} />
-        </a>
-        <button
-          ref={button}
-          className="burger"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={open}
-          aria-controls="main-menu"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
-      </div>
-    </header>
+          <button
+            ref={button}
+            className="burger"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={open}
+            aria-controls="main-menu"
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
+      </header>
     </>
   );
 }
@@ -197,7 +191,7 @@ function SectionTitle({ number, label, children, text }) {
     </Reveal>
   );
 }
-// Les 4 étapes de la méthode : partagées par le visuel interactif et les cartes.
+
 const steps = [
   [
     "Votre idée",
@@ -279,7 +273,7 @@ function FlowPreview() {
     </Tilt>
   );
 }
-// Vitrine de l'accueil : les projets défilent seuls, pause au survol ou au clavier.
+
 function HeroShowcase() {
   const reduced = useReducedMotion();
   const [index, setIndex] = useState(0),
@@ -323,7 +317,10 @@ function HeroShowcase() {
           </AnimatePresence>
         </a>
         <div className="showcase-footer">
-          <div className="showcase-caption" aria-live={paused ? "polite" : "off"}>
+          <div
+            className="showcase-caption"
+            aria-live={paused ? "polite" : "off"}
+          >
             <span className="tiny-label">{p.type}</span>
             <strong>{p.name}</strong>
           </div>
@@ -339,7 +336,7 @@ function HeroShowcase() {
             </button>
           </div>
         </div>
-        {/* La fin de la barre de progression déclenche le projet suivant. */}
+
         {!reduced && (
           <span
             key={index}
@@ -651,10 +648,14 @@ function Method() {
     </section>
   );
 }
-// Liste d’attente : chaque inscription arrive par Formspree avec les ressources choisies.
+
 function Waitlist({ interests, setInterests, email }) {
   const [form, setForm] = useState({ email: "", _gotcha: "" });
-  const [state, setState] = useState({ sending: false, ok: false, message: "" });
+  const [state, setState] = useState({
+    sending: false,
+    ok: false,
+    message: "",
+  });
   function toggle(title) {
     setInterests((list) =>
       list.includes(title) ? list.filter((t) => t !== title) : [...list, title],
@@ -664,7 +665,11 @@ function Waitlist({ interests, setInterests, email }) {
     event.preventDefault();
     if (state.sending || form._gotcha) return;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      setState({ sending: false, ok: false, message: "Vérifiez votre adresse e-mail." });
+      setState({
+        sending: false,
+        ok: false,
+        message: "Vérifiez votre adresse e-mail.",
+      });
       return;
     }
     setState({ sending: true, ok: false, message: "" });
@@ -673,7 +678,10 @@ function Waitlist({ interests, setInterests, email }) {
     try {
       const response = await fetch(config.formEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           email: form.email.trim(),
           ressources: interests.length ? interests.join(", ") : "Toutes",
@@ -694,7 +702,8 @@ function Waitlist({ interests, setInterests, email }) {
       setState({
         sending: false,
         ok: false,
-        message: "L’inscription n’a pas pu être confirmée. Réessayez plus tard ou écrivez-moi.",
+        message:
+          "L’inscription n’a pas pu être confirmée. Réessayez plus tard ou écrivez-moi.",
       });
     } finally {
       clearTimeout(timer);
@@ -702,17 +711,29 @@ function Waitlist({ interests, setInterests, email }) {
   }
   return (
     <Reveal>
-      <form id="waitlist" className="panel waitlist" onSubmit={submit} aria-busy={state.sending}>
+      <form
+        id="waitlist"
+        className="panel waitlist"
+        onSubmit={submit}
+        aria-busy={state.sending}
+      >
         <div className="waitlist-intro">
           <span className="waitlist-icon">
             <BellRing size={20} />
           </span>
           <div>
             <h3>Soyez prévenu(e) de la sortie.</h3>
-            <p>Choisissez ce qui vous intéresse : un seul e-mail, le jour du lancement.</p>
+            <p>
+              Choisissez ce qui vous intéresse : un seul e-mail, le jour du
+              lancement.
+            </p>
           </div>
         </div>
-        <div className="waitlist-choices" role="group" aria-label="Ressources qui vous intéressent">
+        <div
+          className="waitlist-choices"
+          role="group"
+          aria-label="Ressources qui vous intéressent"
+        >
           {products.map((p) => (
             <button
               type="button"
@@ -755,11 +776,14 @@ function Waitlist({ interests, setInterests, email }) {
           </button>
         </div>
         <p className="form-note">
-          Votre e-mail sert uniquement à vous prévenir de la sortie, via Formspree.{" "}
-          <a href="/confidentialite/">Données personnelles</a>.
+          Votre e-mail sert uniquement à vous prévenir de la sortie, via
+          Formspree. <a href="/confidentialite/">Données personnelles</a>.
         </p>
         {state.message && (
-          <p className={"feedback " + (state.ok ? "success" : "error")} role="status">
+          <p
+            className={"feedback " + (state.ok ? "success" : "error")}
+            role="status"
+          >
             {state.message}
           </p>
         )}
@@ -789,7 +813,6 @@ function Resources() {
         </SectionTitle>
         <div className="resource-grid">
           {products.map((p, i) => {
-            // N'accepte que des liens HTTPS (évite javascript: ou http: par erreur).
             const raw = p.url || config.shopUrl;
             const url = /^https:\/\//i.test(raw || "") ? raw : "";
             return (
@@ -1073,7 +1096,7 @@ export function App({ initialPath = "/", initialHash = "" } = {}) {
       : title
         ? title + " — " + config.name
         : config.name + " — Développeur web freelance & design graphique";
-    // Préserve les anciennes adresses partagées tout en adoptant les URL de pages.
+
     if (normalized === "/" && route.startsWith("#/") && !realUnknown) {
       window.location.replace(
         projectKnown ? "/projets/" + project + "/" : "/" + legal + "/",
@@ -1089,9 +1112,7 @@ export function App({ initialPath = "/", initialHash = "" } = {}) {
         let id = route.slice(1);
         try {
           id = decodeURIComponent(id);
-        } catch {
-          // Ancre mal encodée (ex. « /#% ») : on l'ignore au lieu de planter.
-        }
+        } catch {}
         document.getElementById(id)?.scrollIntoView();
       } else if (!isHome) {
         window.scrollTo({ top: 0, behavior: "instant" });

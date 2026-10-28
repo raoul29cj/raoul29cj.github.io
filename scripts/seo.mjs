@@ -10,7 +10,7 @@ const escape = (s) =>
     .replaceAll('"', "&quot;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
-// Même politique que public/_headers (frame-ancestors n'est pas accepté en balise meta).
+
 const csp = [
   "default-src 'self'",
   "script-src 'self'",
@@ -234,9 +234,24 @@ for (const page of pages) {
               breadcrumb: {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Accueil", item: origin + "/" },
-                  { "@type": "ListItem", position: 2, name: "Projets", item: origin + "/#projets" },
-                  { "@type": "ListItem", position: 3, name: page.project.name, item: canonical },
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Accueil",
+                    item: origin + "/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Projets",
+                    item: origin + "/#projets",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: page.project.name,
+                    item: canonical,
+                  },
                 ],
               },
             };
@@ -244,11 +259,11 @@ for (const page of pages) {
     }
   }
   html = html.replace("</head>", extra.join("\n") + "\n</head>");
-  // GitHub Pages ignore public/_headers : la politique de sécurité est donc
-  // aussi déclarée dans la page, juste après le charset (avant tout script).
+
   html = html.replace(
     /<meta charset="UTF-8" \/>/i,
-    (charset) => `${charset}\n<meta http-equiv="Content-Security-Policy" content="${csp}"/>`,
+    (charset) =>
+      `${charset}\n<meta http-equiv="Content-Security-Policy" content="${csp}"/>`,
   );
   const output =
     page.route === "/"
@@ -259,7 +274,7 @@ for (const page of pages) {
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, html);
 }
-// Le noindex reste lisible par les robots : ne pas empêcher le chargement du HTML/CSS/JS.
+
 fs.writeFileSync(
   "dist/robots.txt",
   "User-agent: *\nAllow: /\n" +

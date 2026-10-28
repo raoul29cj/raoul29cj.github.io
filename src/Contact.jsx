@@ -73,7 +73,7 @@ export default function Contact() {
         throw new Error(
           response.status === 429
             ? "Service temporairement limité. Contactez-moi par e-mail."
-            : "Le service n’a pas accepté la demande. Votre texte est conservé."
+            : "Le service n’a pas accepté la demande. Votre texte est conservé.",
         );
       }
 
@@ -81,20 +81,20 @@ export default function Contact() {
 
       if (data.ok !== true) {
         throw new Error(
-          "La confirmation est indisponible. Votre texte est conservé."
+          "La confirmation est indisponible. Votre texte est conservé.",
         );
       }
 
       setSuccess(true);
       setStatus(
-        "Votre demande a été transmise. Merci, je reviendrai vers vous par e-mail."
+        "Votre demande a été transmise. Merci, je reviendrai vers vous par e-mail.",
       );
       setForm(empty);
     } catch (error) {
       setStatus(
         error.name === "AbortError" || error instanceof TypeError
           ? "Impossible de confirmer l’envoi. Évitez les envois répétés ; contactez-moi par e-mail si nécessaire."
-          : error.message
+          : error.message,
       );
     } finally {
       clearTimeout(timer);
@@ -108,7 +108,7 @@ export default function Contact() {
       await navigator.clipboard.writeText(
         `À : ${config.email}\n` +
           `Nom : ${form.name}\n` +
-          `E-mail : ${form.email}\n\n${form.message}`
+          `E-mail : ${form.email}\n\n${form.message}`,
       );
 
       setSuccess(true);
@@ -123,9 +123,7 @@ export default function Contact() {
     <section id="contact" className="section contact">
       <div className="container contact-grid">
         <Reveal>
-          <span className="eyebrow">
-            07 / PARLONS DE VOTRE PROJET
-          </span>
+          <span className="eyebrow">07 / PARLONS DE VOTRE PROJET</span>
 
           <h2>
             La prochaine
@@ -136,31 +134,22 @@ export default function Contact() {
           </h2>
 
           <p className="lead">
-            Quelques mots suffisent pour commencer. Expliquez-moi ce que
-            vous souhaitez créer ou améliorer.
+            Quelques mots suffisent pour commencer. Expliquez-moi ce que vous
+            souhaitez créer ou améliorer.
           </p>
 
-          <a
-            className="contact-line"
-            href={"mailto:" + config.email}
-          >
+          <a className="contact-line" href={"mailto:" + config.email}>
             <Mail size={19} />
             {config.email}
             <ArrowUpRight size={16} />
           </a>
 
-          <a
-            className="contact-line"
-            href={"tel:" + config.phone}
-          >
+          <a className="contact-line" href={"tel:" + config.phone}>
             <Phone size={19} />
             {config.phoneLabel}
           </a>
 
-          <a
-            className="subtle-link"
-            href={"sms:" + config.phone}
-          >
+          <a className="subtle-link" href={"sms:" + config.phone}>
             <span>Une précision ? Envoyer un SMS</span>
             <ArrowUpRight size={16} aria-hidden="true" />
           </a>
@@ -238,18 +227,14 @@ export default function Contact() {
               />
             </label>
 
-            <button
-              className="button primary wide"
-              disabled={sending}
-            >
+            <button className="button primary wide" disabled={sending}>
               {sending ? "Envoi en cours…" : "Envoyer ma demande"}
               <ArrowUpRight size={18} />
             </button>
 
             <p className="form-note">
-              Envoi via Formspree. Vos informations servent à traiter
-              votre demande.{" "}
-              <a href="#/confidentialite">Données personnelles</a>.
+              Envoi via Formspree. Vos informations servent à traiter votre
+              demande. <a href="/confidentialite/">Données personnelles</a>.
             </p>
 
             <button
@@ -264,9 +249,7 @@ export default function Contact() {
 
             {status && (
               <p
-                className={
-                  "feedback " + (success ? "success" : "error")
-                }
+                className={"feedback " + (success ? "success" : "error")}
                 role="status"
               >
                 {status}

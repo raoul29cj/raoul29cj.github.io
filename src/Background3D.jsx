@@ -2,23 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import { LightRibbons } from "./Effects";
 
-// Fond 3D : un relief de particules en WebGL natif (aucune librairie, ~5 Ko).
-// - Souris / doigt : la scène s'incline et le relief se soulève sous le curseur.
-// - Clic / tap : une onde de choc part du point touché.
-// - Défilement : la caméra tourne autour du relief, la vitesse agite la vague.
-// Sans WebGL, on revient aux rubans lumineux en canvas 2D.
-
 const vertex = `
 attribute vec2 aGrid;
 uniform float uTime;
 uniform float uAspect;
 uniform float uPointScale;
-uniform vec2 uCam;      // inclinaison (x) et rotation (y) de la caméra
-uniform vec3 uOffset;   // position de la caméra
-uniform vec2 uMouse;    // point du relief sous le curseur
+uniform vec2 uCam;
+uniform vec3 uOffset;
+uniform vec2 uMouse;
 uniform float uMouseForce;
-uniform vec3 uPulse;    // onde de choc : x, z, âge en secondes
-uniform float uEnergy;  // agitation liée à la vitesse de défilement
+uniform vec3 uPulse;
+uniform float uEnergy;
 varying float vGlow;
 varying float vFade;
 
@@ -30,12 +24,10 @@ void main() {
        + sin(p.z * 0.85 + t * 0.4) * 0.3
        + sin((p.x + p.z) * 0.35 - t * 0.3) * 0.38) * amp;
 
-  // Relief soulevé sous le curseur, avec une ondulation qui s'éloigne.
   float d = distance(p.xz, uMouse);
   float bump = exp(-d * d * 0.28) * uMouseForce;
   p.y += bump * 1.35 + sin(d * 3.0 - t * 4.0) * exp(-d * 0.55) * 0.16 * uMouseForce;
 
-  // Onde de choc circulaire au clic.
   float pd = distance(p.xz, uPulse.xy);
   float ring = exp(-pow(pd - uPulse.z * 5.0, 2.0) * 1.6) * exp(-uPulse.z * 1.4);
   p.y += ring * 0.9;
@@ -46,12 +38,12 @@ void main() {
   vec3 v = rotX * (rotY * p) + uOffset;
 
   float f = 1.0 / tan(0.45);
-  // Perspective sans test de profondeur (z = 0) : les points derrière la caméra sont écartés.
+
   gl_Position = vec4(v.x * f / uAspect, v.y * f, 0.0, -v.z);
   gl_PointSize = min(uPointScale / -v.z, uPointScale * 0.16) * (1.0 + bump * 0.6 + ring);
 
   vGlow = clamp(bump * 1.2 + ring * 1.5 + max(p.y, 0.0) * 0.3, 0.0, 1.0);
-  // Fondu au loin, sur les bords et au premier plan (lisibilité du contenu).
+
   vFade = smoothstep(14.0, 6.0, -v.z) * smoothstep(1.0, 0.75, abs(aGrid.x))
         * smoothstep(2.5, 5.0, -v.z);
 }
@@ -89,8 +81,6 @@ export default function Background3D() {
   const [fallback, setFallback] = useState(false);
 
   useEffect(() => {
-    // La 3D démarre une fois la page affichée et le navigateur au repos :
-    // le texte apparaît plus vite, surtout sur mobile.
     let cleanup = () => {},
       cancelled = false;
     const begin = () => {
@@ -164,10 +154,9 @@ export default function Background3D() {
       ])
         u[name] = gl.getUniformLocation(program, name);
 
-      // Valeurs lissées : la scène suit la souris et le défilement avec douceur.
       const s = {
         px: -1,
-        py: -1, // dernier pointeur à l'écran (px)
+        py: -1,
         tilt: 0,
         tiltY: 0,
         rx: 0.42,
@@ -190,7 +179,6 @@ export default function Background3D() {
         offsetX = 1.6,
         frame = 0;
 
-      // Lancer de rayon : du pixel sous le curseur jusqu'au plan du relief.
       function project(clientX, clientY) {
         const x = (clientX / width) * 2 - 1,
           y = 1 - (clientY / height) * 2;
@@ -200,8 +188,8 @@ export default function Background3D() {
           sy = Math.sin(s.ry);
         const inv = ([a, b, c]) => {
           const qy = cx * b + sx * c,
-            qz = -sx * b + cx * c; // inverse de l'inclinaison
-          return [cy * a - sy * qz, qy, sy * a + cy * qz]; // inverse de la rotation
+            qz = -sx * b + cx * c;
+          return [cy * a - sy * qz, qy, sy * a + cy * qz];
         };
         const o = inv([-offsetX, -s.lift, 7.5]);
         const d = inv([(x * width) / height / FOCAL, y / FOCAL, -1]);
@@ -245,7 +233,7 @@ export default function Background3D() {
         s.last = now;
         const doc = Math.max(document.documentElement.scrollHeight - height, 1);
         const progress = Math.min(scrollY / doc, 1);
-        // Vitesse de défilement -> énergie de la vague.
+
         const speed = Math.abs(scrollY - s.lastScroll) / height;
         s.lastScroll = scrollY;
         s.energy = Math.max(ease(s.energy, 0, 0.04), Math.min(speed * 12, 1));
@@ -255,7 +243,7 @@ export default function Background3D() {
         const ty = s.py < 0 ? 0 : s.py / height - 0.5;
         s.tilt = ease(s.tilt, tx, 0.06);
         s.tiltY = ease(s.tiltY, ty, 0.06);
-        // Au défilement, la caméra plonge et tourne autour du relief.
+
         s.rx = ease(s.rx, 0.42 + s.tiltY * 0.14 + progress * 0.38, 0.08);
         s.ry = ease(s.ry, s.tilt * 0.3 + progress * 0.9, 0.08);
         s.lift = ease(

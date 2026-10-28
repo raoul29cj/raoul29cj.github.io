@@ -141,10 +141,10 @@ export function LegalPage({ type }) {
           </p>
           <h2>Contenus</h2>
           <p>
-            Ce site présente des services web et graphiques ainsi que des projets
-            conceptuels. Les marques et ressources tierces restent soumises aux
-            droits et licences de leurs titulaires. Contactez l’éditeur pour une
-            demande de réutilisation.
+            Ce site présente des services web et graphiques ainsi que des
+            projets conceptuels. Les marques et ressources tierces restent
+            soumises aux droits et licences de leurs titulaires. Contactez
+            l’éditeur pour une demande de réutilisation.
           </p>
         </>
       ) : type === "confidentialite" ? (
@@ -223,12 +223,11 @@ export function LegalPage({ type }) {
           <h2>Démonstrations et tarifs</h2>
           <p>
             {projects.map((p) => p.name).join(", ")} sont des créations
-            fictives. Les
-            interactions illustrent une expérience web ; elles ne permettent pas
-            de réserver de prestations réelles. Les tarifs affichés sont des
-            prix de départ indicatifs : le périmètre et les conditions d’une
-            prestation sont précisés dans un devis et les documents contractuels
-            applicables.
+            fictives. Les interactions illustrent une expérience web ; elles ne
+            permettent pas de réserver de prestations réelles. Les tarifs
+            affichés sont des prix de départ indicatifs : le périmètre et les
+            conditions d’une prestation sont précisés dans un devis et les
+            documents contractuels applicables.
           </p>
           <h2>Ressources et liens</h2>
           <p>

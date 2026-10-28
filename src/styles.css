@@ -1,22 +1,21 @@
-/* RAOUL.CJ — thème existant, interactions et responsive harmonisés */
 :root {
   font-family: "DM Sans", sans-serif;
   color: #edf3ff;
   background: #080d16;
-  /* Palette Raoul.CJ : chaque couleur a un rôle */
-  --bg: #080d16; /* fond */
-  --bg-2: #0b1422; /* surfaces sombres */
-  --text: #edf3ff; /* texte principal */
-  --text-2: #c3d3e8; /* texte secondaire */
-  --muted: #a8b7cd; /* texte discret */
-  --muted-2: #8ea4c0; /* indications, champs vides */
-  --blue: #9cc7ff; /* actions, liens, accents */
-  --blue-soft: #c8e0ff; /* survol des actions */
-  --blue-deep: #5c9eff; /* lueurs */
-  --navy: #10233c; /* texte sur boutons clairs */
-  --orange: #ffb078; /* signature, mises en avant */
-  --orange-soft: #ffd0aa; /* survol orange */
-  --green: #60e6a0; /* disponibilité */
+
+  --bg: #080d16;
+  --bg-2: #0b1422;
+  --text: #edf3ff;
+  --text-2: #c3d3e8;
+  --muted: #a8b7cd;
+  --muted-2: #8ea4c0;
+  --blue: #9cc7ff;
+  --blue-soft: #c8e0ff;
+  --blue-deep: #5c9eff;
+  --navy: #10233c;
+  --orange: #ffb078;
+  --orange-soft: #ffd0aa;
+  --green: #60e6a0;
   --panel: #101a2bcc;
   --line: #a8c4f21f;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -83,7 +82,7 @@ em {
   font-weight: 400;
   color: var(--blue);
 }
-/* Instrument Serif a un œil plus petit : légère compensation dans les titres. */
+
 h1 em,
 h2 em {
   font-size: 1.08em;
@@ -255,7 +254,7 @@ h2 {
 .skip-link:focus {
   top: 12px;
 }
-/* Fond et navigation */
+
 .ambient {
   position: fixed;
   inset: 0;
@@ -376,7 +375,7 @@ h2 {
   color: #fff;
   background: #9cc7ff0d;
 }
-/* Lien de la section en cours : texte clair et petit point orange */
+
 .navigation nav > a {
   position: relative;
 }
@@ -404,7 +403,7 @@ h2 {
   opacity: 1;
   transform: scale(1);
 }
-/* Progression de lecture */
+
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -424,7 +423,7 @@ h2 {
 .mobile-cta {
   display: none !important;
 }
-/* Accueil */
+
 .hero {
   position: relative;
   min-height: 820px;
@@ -531,7 +530,7 @@ h2 {
 .scroll-indicator svg {
   color: var(--orange);
 }
-/* Tableau de projet interactif */
+
 .flow-preview {
   overflow: hidden;
   box-shadow: 0 30px 90px #0005;
@@ -705,7 +704,7 @@ h2 {
   background: var(--orange);
   border-radius: 50%;
 }
-/* Outils et services */
+
 .tools {
   position: relative;
   border-block: 1px solid var(--line);
@@ -896,7 +895,7 @@ h2 {
 .carousel-controls {
   display: none;
 }
-/* Portfolio */
+
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -975,9 +974,6 @@ h2 {
   transform: scale(1.025);
 }
 
-
-
-/* Méthode et ressources */
 .method {
   background: linear-gradient(180deg, #0b1422b3, #0b142233);
   border-block: 1px solid var(--line);
@@ -1164,7 +1160,7 @@ h2 {
   outline: 2px solid var(--blue);
   outline-offset: 4px;
 }
-/* Parcours */
+
 .about-grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -1261,7 +1257,7 @@ h2 {
   font-size: 13px;
   margin: 0;
 }
-/* Contact et FAQ */
+
 .contact {
   background: linear-gradient(130deg, #10233c80, #10233c80);
   border-block: 1px solid var(--line);
@@ -1433,7 +1429,7 @@ h2 {
 .faq summary:hover {
   color: #ffd0aa;
 }
-/* Footer et documents */
+
 .footer {
   background: #080d16b8;
   border-top: 1px solid var(--line);
@@ -1447,7 +1443,7 @@ h2 {
   display: block;
   position: relative;
   font:
-    500 clamp(31px, 4.5vw, 58px)/1.13 "Space Grotesk",
+    500 clamp(31px, 4.5vw, 58px) / 1.13 "Space Grotesk",
     sans-serif;
   letter-spacing: -2px;
   padding-right: 65px;
@@ -1572,7 +1568,7 @@ h2 {
 }
 .error-code {
   font:
-    600 clamp(100px, 16vw, 190px)/1 "Space Grotesk",
+    600 clamp(100px, 16vw, 190px) / 1 "Space Grotesk",
     sans-serif;
   letter-spacing: -12px;
   color: #c8e0ff33;
@@ -1594,7 +1590,7 @@ h2 {
   display: block;
   margin-top: 15px;
 }
-/* Démonstrations */
+
 .project-page {
   padding-top: 120px;
   min-height: 100vh;
@@ -1636,7 +1632,8 @@ h2 {
 }
 .demo-nav strong {
   font:
-    500 26px "Instrument Serif", Georgia,
+    500 26px "Instrument Serif",
+    Georgia,
     serif;
 }
 .demo-nav a {
@@ -1654,7 +1651,8 @@ h2 {
 }
 .demo-hero h1 {
   font:
-    400 clamp(55px, 6.8vw, 85px)/1.02 "Instrument Serif", Georgia,
+    400 clamp(55px, 6.8vw, 85px) / 1.02 "Instrument Serif",
+    Georgia,
     serif;
   letter-spacing: -3px;
   margin: 22px 0;
@@ -1742,7 +1740,8 @@ h2 {
 }
 .demo-offer h3 {
   font:
-    400 29px "Instrument Serif", Georgia,
+    400 29px "Instrument Serif",
+    Georgia,
     serif;
 }
 .demo-offer p {
@@ -1783,7 +1782,7 @@ h2 {
   align-items: center;
   gap: 8px;
 }
-/* Interactions communes : souris, clavier et pression tactile */
+
 .lucide {
   stroke-width: 1.75;
 }
@@ -1886,7 +1885,7 @@ summary {
   font-size: 11px;
   letter-spacing: 1.4px;
 }
-/* Vitrine de projets de l'accueil */
+
 .hero-showcase {
   position: relative;
 }
@@ -1967,7 +1966,7 @@ summary {
     transform: scaleX(1);
   }
 }
-/* Méthode : titre et parcours interactif côte à côte */
+
 .method-intro {
   display: grid;
   grid-template-columns: 1fr minmax(0, 480px);
@@ -2105,7 +2104,7 @@ button:active:not(:disabled),
   background: transparent;
   color: inherit;
 }
-/* Étude de cas des pages projet : s'adapte aux couleurs de chaque thème */
+
 .case-study {
   padding: 60px 0 70px;
   border-top: 1px solid #7292b355;
@@ -2381,7 +2380,6 @@ button:active:not(:disabled),
   }
 }
 
-/* Responsive */
 @media (min-width: 1600px) {
   .hero {
     min-height: 900px;
@@ -3079,7 +3077,6 @@ button:active:not(:disabled),
     font-size: clamp(39px, 10vw, 60px);
     letter-spacing: -2px;
   }
-
 }
 @media (max-width: 360px) {
   .container {
@@ -3167,12 +3164,6 @@ button:active:not(:disabled),
   }
 }
 
-/* ==========================================================================
-   Verre dépoli (façon Apple) et bordures harmonisées
-   Les surfaces floutent le relief 3D derrière elles au lieu de le laisser
-   traverser le contenu. Bordure dégradée : reflet en haut à gauche,
-   touche orange en bas à droite.
-   ========================================================================== */
 :root {
   --glass: rgba(13, 21, 35, 0.62);
   --glass-hover: rgba(20, 33, 54, 0.72);
@@ -3192,8 +3183,7 @@ button:active:not(:disabled),
   );
   --radius-lg: 22px;
   --radius-md: 16px;
-  --shadow-soft:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+  --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.06) inset,
     0 28px 60px -24px rgba(0, 0, 0, 0.65);
 }
 .panel,
@@ -3222,7 +3212,7 @@ button:active:not(:disabled),
     0 30px 70px -22px rgba(0, 0, 0, 0.7),
     0 0 40px -12px rgba(156, 199, 255, 0.25);
 }
-/* Menu : capsule de verre plus dense pour rester lisible partout */
+
 .navigation {
   --glass: rgba(9, 15, 27, 0.7);
   border-radius: 18px;
@@ -3230,7 +3220,7 @@ button:active:not(:disabled),
 .navigation nav > a {
   border-radius: 10px;
 }
-/* Méthode : chaque étape devient une carte */
+
 .method-card {
   border-radius: var(--radius-md);
   padding: 24px 22px 26px;
@@ -3247,7 +3237,7 @@ button:active:not(:disabled),
   background: rgba(255, 176, 120, 0.1);
   border: 1px solid rgba(255, 176, 120, 0.25);
 }
-/* FAQ : liste regroupée dans un panneau */
+
 .faq-list {
   border-radius: var(--radius-lg);
   padding: 6px 26px;
@@ -3255,7 +3245,7 @@ button:active:not(:disabled),
 .faq-list details:last-child {
   border-bottom: 0;
 }
-/* Aperçus de projets : même rayon et bordure lumineuse */
+
 .project-preview {
   border-radius: var(--radius-lg);
   border-color: rgba(196, 220, 255, 0.16);
@@ -3263,7 +3253,7 @@ button:active:not(:disabled),
 .project-preview:hover {
   border-color: rgba(196, 220, 255, 0.45);
 }
-/* Bandeaux pleine largeur : verre plus discret */
+
 .tools,
 .footer {
   background: rgba(8, 14, 25, 0.55);
@@ -3271,9 +3261,13 @@ button:active:not(:disabled),
   backdrop-filter: var(--glass-blur);
 }
 .method {
-  background: linear-gradient(180deg, rgba(11, 20, 34, 0.55), rgba(11, 20, 34, 0.25));
+  background: linear-gradient(
+    180deg,
+    rgba(11, 20, 34, 0.55),
+    rgba(11, 20, 34, 0.25)
+  );
 }
-/* Champs du formulaire */
+
 .contact-form input,
 .contact-form textarea {
   border-radius: 12px;
@@ -3281,8 +3275,7 @@ button:active:not(:disabled),
   border-color: rgba(157, 188, 227, 0.18);
   font-size: 14px;
 }
-/* Écrans tactiles : 16 px minimum, sinon iOS zoome automatiquement
-   sur le champ quand le clavier apparaît. */
+
 @media (pointer: coarse), (max-width: 850px) {
   .contact-form input,
   .contact-form textarea,
@@ -3303,7 +3296,7 @@ button:active:not(:disabled),
     --glass: var(--glass-hover);
   }
 }
-/* Mobile : flou allégé pour préserver la fluidité */
+
 @media (max-width: 700px) {
   :root {
     --glass: rgba(13, 21, 35, 0.74);
@@ -3314,18 +3307,16 @@ button:active:not(:disabled),
     padding: 2px 18px;
   }
 }
-/* Navigateurs sans flou : surfaces plus opaques */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
   :root {
     --glass: rgba(13, 21, 35, 0.92);
     --glass-hover: rgba(20, 33, 54, 0.95);
   }
 }
 
-/* ==========================================================================
-   Les 4 concepts : une identité propre à chacun
-   Tailles en unités de conteneur (cqi) : le visuel s'adapte à la carte.
-   ========================================================================== */
 .art {
   position: relative;
   container-type: inline-size;
@@ -3333,7 +3324,6 @@ button:active:not(:disabled),
   flex-direction: column;
 }
 
-/* Maison Alba — douceur : rose poudré et sauge, serif élégant, composition centrée */
 .art-alba {
   background: radial-gradient(120% 80% at 50% 0%, #fbf1ec, #f0ddd6 70%);
   color: #4b3a35;
@@ -3440,7 +3430,6 @@ button:active:not(:disabled),
   background: #fff8f5aa;
 }
 
-/* Sola — généreux et chaleureux : rouge tomate, crème, typographie très grasse */
 .art-sola {
   background: #d9472b;
   color: #fff1e0;
@@ -3545,7 +3534,6 @@ button:active:not(:disabled),
   border-bottom: 1px dashed #7a1f0f55;
 }
 
-/* Atelier N°7 — noir et laiton, condensé, enseigne et tarifs */
 .art-barber {
   background: radial-gradient(90% 70% at 70% 20%, #1d1b18, #0c0c0d 70%);
   color: #f1e5cf;
@@ -3625,11 +3613,9 @@ button:active:not(:disabled),
   color: #c9a46a;
 }
 
-/* Atelier Noyer — kraft et vert forêt, papier millimétré, plan technique */
 .art-artisan {
   background-color: #ebe1cf;
-  background-image:
-    linear-gradient(#2f4a3a12 1px, transparent 1px),
+  background-image: linear-gradient(#2f4a3a12 1px, transparent 1px),
     linear-gradient(90deg, #2f4a3a12 1px, transparent 1px);
   background-size: 5cqi 5cqi;
   color: #2f4a3a;
@@ -3733,7 +3719,6 @@ button:active:not(:disabled),
   background: #f6f0e4;
 }
 
-/* Pages projet : chaque thème reprend l'identité de son visuel */
 .alba-demo {
   background: radial-gradient(90% 60% at 50% 0%, #fcf3ef, #f2e2dc 70%);
   color: #4b3a35;
@@ -3820,8 +3805,7 @@ button:active:not(:disabled),
 }
 .artisan-demo {
   background-color: #ebe1cf;
-  background-image:
-    linear-gradient(#2f4a3a10 1px, transparent 1px),
+  background-image: linear-gradient(#2f4a3a10 1px, transparent 1px),
     linear-gradient(90deg, #2f4a3a10 1px, transparent 1px);
   background-size: 28px 28px;
   color: #2f4a3a;
@@ -3850,7 +3834,6 @@ button:active:not(:disabled),
   border-radius: 0;
 }
 
-/* Réseaux sociaux : pastilles de verre, survol orange */
 .socials {
   display: flex;
   flex-wrap: wrap;
@@ -3895,7 +3878,6 @@ button:active:not(:disabled),
   height: 38px;
 }
 
-/* Texte réservé aux lecteurs d'écran */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -3905,7 +3887,6 @@ button:active:not(:disabled),
   white-space: nowrap;
 }
 
-/* Liste d'attente des ressources */
 .waitlist {
   margin-top: 34px;
   padding: 28px;

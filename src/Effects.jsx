@@ -149,7 +149,7 @@ export function Asset({
     fallback
   );
 }
-// Rubans lumineux : canvas 2D, 3D visuelle sans moteur WebGL lourd.
+
 export function LightRibbons() {
   const ref = useRef(null);
   const reduced = useReducedMotion();
@@ -170,8 +170,6 @@ export function LightRibbons() {
     const mobile = matchMedia("(max-width: 700px)").matches;
     const count = mobile ? 16 : 28;
     function size() {
-      // Sur mobile, la barre d'adresse change la hauteur au défilement :
-      // on évite de réallouer le canvas pour ces petites variations.
       if (width === innerWidth && Math.abs(height - innerHeight) < 120) return;
       width = innerWidth;
       height = innerHeight;
@@ -290,7 +288,7 @@ export function LightRibbons() {
     </div>
   );
 }
-// Visuels des 4 concepts : chacun a sa mise en page, sa typographie et sa palette.
+
 export function ProjectArt({ id }) {
   if (id === "alba")
     return (
