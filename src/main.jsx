@@ -71,7 +71,7 @@ function Brand() {
   return (
     <a className="brand" href="/#accueil" aria-label="Raoul.CJ, accueil">
       <Asset
-        src={config.portrait}
+        src={config.avatar}
         alt=""
         eager
         size={36}
@@ -875,7 +875,7 @@ function About() {
             </div>
             <div className="identity-person">
               <Asset
-                src={config.portrait}
+                src={config.avatar}
                 alt={config.author}
                 className="avatar"
                 size={58}

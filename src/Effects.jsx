@@ -294,7 +294,7 @@ export function LightRibbons() {
 export function ProjectArt({ id }) {
   if (id === "alba")
     return (
-      <div className="art art-alba">
+      <div className="art art-alba" aria-hidden="true">
         <div className="alba-top">
           <span>Soins</span>
           <b>Maison Alba</b>
@@ -305,11 +305,11 @@ export function ProjectArt({ id }) {
             <span className="alba-sun" />
             <span className="alba-stem" />
           </div>
-          <h3>
+          <div className="art-title">
             Une pause,
             <br />
             <em>pour vous.</em>
-          </h3>
+          </div>
         </div>
         <div className="alba-pills">
           <span>Visage</span>
@@ -320,18 +320,18 @@ export function ProjectArt({ id }) {
     );
   if (id === "sola")
     return (
-      <div className="art art-sola">
+      <div className="art art-sola" aria-hidden="true">
         <div className="sola-top">
           <b>
             sola<span>.</span>
           </b>
           <span>La carte · Réserver</span>
         </div>
-        <h3>
+        <div className="art-title">
           Le goût
           <br />
           du moment.
-        </h3>
+        </div>
         <div className="sola-plate" aria-hidden="true">
           <i />
           <i />
@@ -357,7 +357,7 @@ export function ProjectArt({ id }) {
     );
   if (id === "barber")
     return (
-      <div className="art art-barber">
+      <div className="art art-barber" aria-hidden="true">
         <span className="barber-stripes" aria-hidden="true" />
         <div className="barber-head">
           <span>Est. 2026</span>
@@ -366,11 +366,11 @@ export function ProjectArt({ id }) {
           </b>
           <span>Paris</span>
         </div>
-        <h3>
+        <div className="art-title">
           La coupe
           <br />
           <em>juste.</em>
-        </h3>
+        </div>
         <ul className="barber-menu">
           <li>
             <span>Coupe signature</span>
@@ -391,7 +391,7 @@ export function ProjectArt({ id }) {
       </div>
     );
   return (
-    <div className="art art-artisan">
+    <div className="art art-artisan" aria-hidden="true">
       <div className="artisan-top">
         <b>
           atelier
@@ -401,11 +401,11 @@ export function ProjectArt({ id }) {
         <span>N°01 — Mobilier sur mesure</span>
       </div>
       <div className="artisan-body">
-        <h3>
+        <div className="art-title">
           Habiter
           <br />
           <em>autrement.</em>
-        </h3>
+        </div>
         <div className="artisan-drawing" aria-hidden="true">
           <div className="artisan-cabinet">
             <i />

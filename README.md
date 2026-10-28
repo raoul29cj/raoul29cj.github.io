@@ -1,46 +1,72 @@
-# Raoul.CJ — Portfolio, services et ressources numériques
+<h1 align="center">Raoul.CJ — Portfolio</h1>
 
-Site vitrine **en français** de Raoul.CJ : développement web, design graphique et (bientôt) ebooks.
-React 19 + Vite 7, pré-rendu statique des pages pour le référencement, déployable sur Cloudflare Pages.
+<p align="center">
+  Portfolio, services et ressources numériques de <b>Raoul</b>, développeur web & designer graphique.<br />
+  <a href="https://raoul29cj.github.io"><b>🌐 Voir le site en ligne</b></a>
+</p>
 
-## Lancer le projet
+<p align="center">
+  <img alt="React 19" src="https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+  <img alt="Vite 7" src="https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white" />
+  <img alt="WebGL" src="https://img.shields.io/badge/WebGL-natif-990000?style=flat-square&logo=webgl&logoColor=white" />
+  <img alt="Déploiement" src="https://github.com/raoul29cj/raoul29cj.github.io/actions/workflows/deploy.yml/badge.svg" />
+</p>
+
+<p align="center">
+  <a href="https://raoul29cj.github.io"><img alt="Page d’accueil du portfolio Raoul.CJ" src="docs/apercu-accueil.webp" width="900" /></a>
+</p>
+
+## ✨ Points forts
+
+- **Fond 3D interactif en WebGL natif** (~5 Ko, sans librairie) : un relief de particules qui se soulève sous le curseur, une onde de choc au clic, une caméra qui tourne au défilement. Repli en canvas 2D si WebGL est indisponible.
+- **4 concepts de sites aux identités distinctes** — beauté (Maison Alba), restauration (Sola), barbier (Atelier N°7), menuiserie (Atelier Noyer) — chacun avec sa typographie, sa palette, sa page et son étude de cas.
+- **Pages pré-rendues** au build pour le référencement : balises Open Graph, données structurées (services, FAQ, fil d’Ariane), sitemap et robots.txt générés automatiquement.
+- **Interface en verre dépoli**, palette par rôles, typographie harmonisée, menu qui suit la section en cours.
+- **Accessibilité** : navigation au clavier, respect de « réduire les animations », textes alternatifs, tailles minimales.
+- **Sécurité** : politique CSP stricte, validation des liens externes, formulaires protégés contre le spam.
+- **Responsive** du mobile au grand écran.
+
+## 📊 Audit Lighthouse (site en ligne)
+
+| | Performance | Accessibilité | Bonnes pratiques |
+|---|:---:|:---:|:---:|
+| Ordinateur | 100 | 98 | 100 |
+| Mobile | 85 | 98 | 100 |
+
+## 🧰 Technologies
+
+React 19 · Vite 7 · Motion · WebGL · CSS moderne (unités de conteneur, `backdrop-filter`) · Formspree · GitHub Actions + GitHub Pages
+
+## 🚀 Lancer le projet
 
 Pré-requis : Node.js 20.19+ ou 22.12+.
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173 (uniquement sur ce PC)
+npm run dev        # http://localhost:5173
 npm run dev:lan    # accessible depuis un téléphone sur le même Wi-Fi
 npm run build      # génère dist/ (pages pré-rendues, robots.txt, sitemap)
 npm run preview    # teste la version de production
 ```
 
-## Où modifier quoi
+Chaque envoi sur `main` publie automatiquement le site sur GitHub Pages ([workflow](.github/workflows/deploy.yml)).
 
-| Fichier | Contenu |
+## 🗂️ Structure
+
+| Fichier | Rôle |
 |---|---|
-| `src/config.js` | Nom, e-mail, téléphone, formulaire Formspree, domaine, **mentions légales**, services et tarifs, ebooks, parcours |
-| `src/projects.js` | Projets du portfolio et contenu des démonstrations |
-| `src/main.jsx` | Page d'accueil (sections, menu, pied de page) et routage |
-| `src/Pages.jsx` | Pages projet, pages légales, page 404, écran d'erreur |
-| `src/Contact.jsx` | Formulaire de contact (Formspree) |
-| `src/Effects.jsx` | Animations, visuels des projets, rubans lumineux |
-| `src/styles.css` | Design complet, responsive |
-| `scripts/seo.mjs` | Pré-rendu HTML, balises SEO, robots.txt, sitemap |
-| `public/_headers` | En-têtes de sécurité et de cache (Cloudflare Pages / Netlify) |
+| `src/config.js` | Contenu : identité, contact, réseaux, services, ebooks, FAQ, parcours, mentions légales |
+| `src/projects.js` | Projets du portfolio, démonstrations et études de cas |
+| `src/main.jsx` | Page d’accueil, sections, menu et routage |
+| `src/Pages.jsx` | Pages projet, pages légales, 404 |
+| `src/Background3D.jsx` | Fond 3D WebGL interactif |
+| `src/Effects.jsx` | Animations, visuels des 4 concepts |
+| `src/Contact.jsx` · `src/Socials.jsx` | Formulaire de contact, liens vers les réseaux |
+| `src/styles.css` | Design complet (palette par rôles en tête de fichier) |
+| `scripts/seo.mjs` | Pré-rendu HTML, SEO, sécurité, sitemap |
 
-## Avant la mise en ligne
+## 📬 Contact
 
-1. Renseigner `siteUrl` (domaine HTTPS) et tous les champs `legal` dans `src/config.js`, puis passer `indexable: true`.
-   Le build refuse l'indexation tant que ces informations sont incomplètes.
-2. Dans le tableau de bord Formspree : limiter le formulaire au domaine du site et garder le filtre anti-spam.
-3. Ebooks : renseigner `url` (lien HTTPS Payhip, Gumroad, Lemon Squeezy…) dans `products` ; sans lien, le bouton affiche « Bientôt disponible ».
-4. Images : préférer le WebP et des dimensions proches de l'affichage (le portrait s'affiche en 58 px).
-   Le CV (`public/cv-raoul.pdf`) doit rester léger (< 1 Mo idéalement).
+[LinkedIn](https://www.linkedin.com/in/jean-raoul-chocolat-1b3778350/) · [Instagram](https://www.instagram.com/raoul_cj/) · [Le formulaire du site](https://raoul29cj.github.io/#contact)
 
-## Rappels
-
-- Les projets présentés sont des **concepts fictifs**, signalés comme tels sur le site.
-- Aucun paiement n'est intégré au site : la vente passera par une plateforme externe.
-- Avant de facturer ou vendre, vérifier le statut permettant l'activité indépendante en France
-  et les obligations (déclaration, facturation, TVA, mentions légales, droit de rétractation).
+> Les projets présentés sont des **concepts** réalisés pour le portfolio, signalés comme tels sur le site.

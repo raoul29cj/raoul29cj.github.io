@@ -5,7 +5,8 @@ export const config = {
   phone: "+33744877359",
   phoneLabel: "+33 7 44 87 73 59",
   formEndpoint: "https://formspree.io/f/xppqyyrp",
-  portrait: "/cj.webp",
+  portrait: "/cj.webp", // grande version (partage, Google)
+  avatar: "/cj-120.webp", // petite version affichée (menu, carte de profil)
   cv: "/cv-raoul.pdf",
   // Renseignez le domaine exact, puis indexable: true quand le site est prêt.
   siteUrl: "https://raoul29cj.github.io",

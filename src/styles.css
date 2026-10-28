@@ -2311,10 +2311,6 @@ button:active:not(:disabled),
   background: #ffffff04;
   border-color: #c39b6d44;
 }
-.barber-demo .demo-hero h1 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(45px, 6vw, 72px);
-}
 .artisan-demo {
   color: #23414a;
   background: #e3e9e6;
@@ -3076,7 +3072,9 @@ button:active:not(:disabled),
   .demo-next > a {
     font-size: 26px;
   }
-  .barber-demo .demo-hero h1,
+  .barber-demo .demo-hero h1 {
+    font-size: clamp(52px, 15vw, 76px);
+  }
   .artisan-demo .demo-hero h1 {
     font-size: clamp(39px, 10vw, 60px);
     letter-spacing: -2px;
@@ -3413,7 +3411,7 @@ button:active:not(:disabled),
   top: 45%;
   transform: rotate(-25deg);
 }
-.art-alba h3 {
+.art-alba .art-title {
   position: relative;
   margin: 0;
   font:
@@ -3423,7 +3421,7 @@ button:active:not(:disabled),
   color: #3e2f2a;
   text-shadow: 0 2px 18px #fbf1ecaa;
 }
-.art-alba h3 em {
+.art-alba .art-title em {
   font-family: "Playfair Display", serif;
   font-style: italic;
   color: #b5664f;
@@ -3467,7 +3465,7 @@ button:active:not(:disabled),
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.art-sola h3 {
+.art-sola .art-title {
   position: relative;
   z-index: 1;
   margin: 6cqi 0 0;
@@ -3589,7 +3587,7 @@ button:active:not(:disabled),
   letter-spacing: 0.12em;
   color: #f1e5cf;
 }
-.art-barber h3 {
+.art-barber .art-title {
   margin: 5cqi 0;
   font:
     400 max(44px, 17cqi) / 0.86 "Bebas Neue",
@@ -3597,7 +3595,7 @@ button:active:not(:disabled),
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
-.art-barber h3 em {
+.art-barber .art-title em {
   font-family: inherit;
   font-weight: inherit;
   font-style: normal;
@@ -3663,14 +3661,14 @@ button:active:not(:disabled),
   align-items: center;
   gap: 4cqi;
 }
-.art-artisan h3 {
+.art-artisan .art-title {
   margin: 0;
   font:
     700 max(26px, 9cqi) / 0.95 "Space Grotesk",
     sans-serif;
   letter-spacing: -0.05em;
 }
-.art-artisan h3 em {
+.art-artisan .art-title em {
   font-family: inherit;
   font-weight: inherit;
   font-style: normal;
