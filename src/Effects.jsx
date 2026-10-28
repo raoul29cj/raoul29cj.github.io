@@ -161,6 +161,9 @@ export function LightRibbons() {
     const mobile = matchMedia("(max-width: 700px)").matches;
     const count = mobile ? 16 : 28;
     function size() {
+      // Sur mobile, la barre d'adresse change la hauteur au défilement :
+      // on évite de réallouer le canvas pour ces petites variations.
+      if (width === innerWidth && Math.abs(height - innerHeight) < 120) return;
       width = innerWidth;
       height = innerHeight;
       const ratio = Math.min(devicePixelRatio || 1, 1.5);

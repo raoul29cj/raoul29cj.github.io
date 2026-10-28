@@ -216,7 +216,8 @@ export function LegalPage({ type }) {
           </p>
           <h2>Démonstrations et tarifs</h2>
           <p>
-            Maison Alba et Sola Restaurant sont des créations fictives. Les
+            {projects.map((p) => p.name).join(", ")} sont des créations
+            fictives. Les
             interactions illustrent une expérience web ; elles ne permettent pas
             de réserver de prestations réelles. Les tarifs affichés sont des
             prix de départ indicatifs : le périmètre et les conditions d’une

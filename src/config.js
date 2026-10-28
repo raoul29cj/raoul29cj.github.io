@@ -6,7 +6,7 @@ export const config = {
   phoneLabel: "+33 7 44 87 73 59",
   formEndpoint: "https://formspree.io/f/xppqyyrp",
   logo: "/logojunix.png",
-  portrait: "/cj.png",
+  portrait: "/cj.webp",
   cv: "/cv-raoul.pdf",
   // Renseignez le domaine exact, puis indexable: true quand le site est prêt.
   siteUrl: "",

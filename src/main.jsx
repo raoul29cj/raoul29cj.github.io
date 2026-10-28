@@ -56,6 +56,7 @@ import "@fontsource/space-grotesk/latin-600.css";
 import "@fontsource/space-grotesk/latin-700.css";
 import "./styles.css";
 
+const pad = (n) => String(n).padStart(2, "0");
 function Brand() {
   return (
     <a className="brand" href="/#accueil" aria-label="Junix, accueil">
@@ -460,7 +461,7 @@ function Work() {
         <SectionTitle
           number="02"
           label="PROJETS CONCEPTUELS"
-          text="Quatre univers, quatre façons de raconter une activité. Explorez les démonstrations interactives."
+          text={`${projects.length} univers, ${projects.length} façons de raconter une activité. Explorez les démonstrations interactives.`}
         >
           Des idées.
           <br />
@@ -475,7 +476,10 @@ function Work() {
           )}
         </div>
         <div className="work-expand">
-          <span>{expanded ? "04 / 04" : "02 / 04"} CONCEPTS À EXPLORER</span>
+          <span>
+            {pad(expanded ? projects.length : 2)} / {pad(projects.length)}{" "}
+            CONCEPTS À EXPLORER
+          </span>
           <button
             ref={moreButton}
             className="button ghost more-projects"
@@ -483,7 +487,7 @@ function Work() {
             aria-expanded={expanded}
             aria-controls="more-projects"
           >
-            {expanded ? "Réduire les projets" : "Voir plus — barber & artisan"}
+            {expanded ? "Réduire les projets" : "Voir plus de projets"}
             <ChevronDown size={18} />
           </button>
         </div>
@@ -531,7 +535,7 @@ function Method() {
         <div className="facts">
           {[
             ["03", "domaines de service"],
-            [String(projects.length).padStart(2, "0"), "concepts à explorer"],
+            [pad(projects.length), "concepts à explorer"],
             ["01", "interlocuteur"],
           ].map(([n, label]) => (
             <Reveal key={label}>

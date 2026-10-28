@@ -34,11 +34,12 @@ export default function Contact() {
 
     if (
       !form.name.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) ||
       form.message.trim().length < 10 ||
       form._gotcha
     ) {
       setSuccess(false);
-      setStatus("Vérifiez votre nom et votre message.");
+      setStatus("Vérifiez votre nom, votre e-mail et votre message.");
       return;
     }
 
